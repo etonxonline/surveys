@@ -89,18 +89,10 @@
         $(document).ready(function () {
             debugLog('Application initialized');
 
-            // Extract Moodle user ID from the footer
+            // Extract Moodle user ID from a global variable or an accessible element
             let userID = 'Unknown User';
-            const loginInfo = document.querySelector('.logininfo a[href*="profile.php?id="]');
-            if (loginInfo) {
-                const profileUrl = loginInfo.href;
-                const matches = profileUrl.match(/id=(\d+)/);
-                if (matches && matches[1]) {
-                    userID = matches[1];
-                    console.log('user ID = ', userID)
-                } else {
-                    console.log('Unknown user')
-                }
+            if (window.parent && window.parent.MOODLE_USER_ID) {
+                userID = window.parent.MOODLE_USER_ID;
             }
             debugLog('Extracted Moodle user ID:', userID);
 
