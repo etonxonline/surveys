@@ -90,7 +90,7 @@
 
         // Listen for messages from the parent window (Moodle page)
         window.addEventListener('message', function(event) {
-            if (event.origin !== "https://my.etonx.com") { // Change this to your Moodle domain
+            if (event.origin !== "https://my.etonx.com/mod/page/view.php?id=33795") { // Change this to your Moodle domain
                 return;
             }
             if (event.data && event.data.type === 'MOODLE_USER_ID') {
