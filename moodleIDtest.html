@@ -87,15 +87,18 @@
         }
 
         let userID = 'Unknown User';
+        let userIDReceived = false;
 
         // Listen for messages from the parent window (Moodle page)
         window.addEventListener('message', function(event) {
-            if (event.origin !== "https://my.etonx.com/mod/page/view.php?id=33795") { // Change this to your Moodle domain
+            debugLog('Received message from parent:', event);
+            if (event.origin !== "https://my.etonx.com") { // Change this to your Moodle domain
                 debugLog('Ignoring message from unknown origin:', event.origin);
                 return;
             }
             if (event.data && event.data.type === 'MOODLE_USER_ID') {
                 userID = event.data.userID;
+                userIDReceived = true;
                 debugLog('Received Moodle user ID from parent:', userID);
             }
         }, false);
@@ -104,7 +107,7 @@
             debugLog('Application initialized');
 
             // Request the Moodle user ID from the parent window
-            window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "https://my.etonx.com/mod/page/view.php?id=33795");
+            window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "https://my.etonx.com");
 
             const json = {
                 "questions": [
@@ -141,55 +144,70 @@
 
             survey.onComplete.add(function (result) {
                 debugLog('Survey completed, processing results:', result.data);
-                try {
-                    const resultData = result.data;
-                    const queryParams = new URLSearchParams();
 
-                    // Append user ID to the query parameters
-                    queryParams.append('userID', userID);
-                    debugLog('Appending user ID to query parameters:', userID);
+                // Retry mechanism to wait until the user ID is received before submission
+                let retryCount = 0;
+                const maxRetries = 10;
 
-                    Object.entries(resultData).forEach(([key, value]) => {
-                        queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
-                    });
+                function submitSurveyData() {
+                    if (userIDReceived || retryCount >= maxRetries) {
+                        try {
+                            const resultData = result.data;
+                            const queryParams = new URLSearchParams();
 
-                    const url = 'https://script.google.com/macros/s/AKfycbyrcC2mO_FJJwPmk4x_O4xz5iLjYl3m73FByzYN3nwM6Zn1BGEmlKW2WRrpzFYSFc6v/exec' + '?' + queryParams.toString();
-                    debugLog('Submitting to URL:', url);
+                            // Append user ID to the query parameters
+                            queryParams.append('userID', userID);
+                            debugLog('Appending user ID to query parameters:', userID);
 
-                    // Show loading icon while fetching data
-                    document.getElementById('loadingIcon').style.display = 'block';
+                            Object.entries(resultData).forEach(([key, value]) => {
+                                queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
+                            });
 
-                    fetch(url, {
-                        method: 'GET',
-                        mode: 'cors'
-                    })
-                    .then(response => {
-                        debugLog('Received response from server');
-                        return response.json();
-                    })
-                    .then(data => {
-                        debugLog('Processed response data:', data);
-                        if (data.result === 'success') {
-                            document.getElementById('chartContainer').style.display = 'block';
-                            drawChart();
-                        } else {
-                            throw new Error(data.message || 'Unknown error occurred');
+                            const url = 'https://script.google.com/macros/s/AKfycbyrcC2mO_FJJwPmk4x_O4xz5iLjYl3m73FByzYN3nwM6Zn1BGEmlKW2WRrpzFYSFc6v/exec' + '?' + queryParams.toString();
+                            debugLog('Submitting to URL:', url);
+
+                            // Show loading icon while fetching data
+                            document.getElementById('loadingIcon').style.display = 'block';
+
+                            fetch(url, {
+                                method: 'GET',
+                                mode: 'cors'
+                            })
+                            .then(response => {
+                                debugLog('Received response from server');
+                                return response.json();
+                            })
+                            .then(data => {
+                                debugLog('Processed response data:', data);
+                                if (data.result === 'success') {
+                                    document.getElementById('chartContainer').style.display = 'block';
+                                    drawChart();
+                                } else {
+                                    throw new Error(data.message || 'Unknown error occurred');
+                                }
+                            })
+                            .catch(error => {
+                                debugLog('Error in survey submission:', error);
+                                console.error('Error submitting survey:', error);
+                                alert('Failed to submit survey. Please try again.');
+                            })
+                            .finally(() => {
+                                // Hide loading icon
+                                document.getElementById('loadingIcon').style.display = 'none';
+                            });
+                        } catch (error) {
+                            debugLog('Error in survey completion handler:', error);
+                            console.error('Error processing survey submission:', error);
+                            alert('An error occurred while processing your submission.');
                         }
-                    })
-                    .catch(error => {
-                        debugLog('Error in survey submission:', error);
-                        console.error('Error submitting survey:', error);
-                        alert('Failed to submit survey. Please try again.');
-                    })
-                    .finally(() => {
-                        // Hide loading icon
-                        document.getElementById('loadingIcon').style.display = 'none';
-                    });
-                } catch (error) {
-                    debugLog('Error in survey completion handler:', error);
-                    console.error('Error processing survey submission:', error);
-                    alert('An error occurred while processing your submission.');
+                    } else {
+                        retryCount++;
+                        debugLog('Waiting for user ID... Retry:', retryCount);
+                        setTimeout(submitSurveyData, 500); // Retry every 500ms
+                    }
                 }
+
+                submitSurveyData();
             });
 
             $("#surveyContainer").Survey({ model: survey });
