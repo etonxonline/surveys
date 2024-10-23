@@ -64,7 +64,7 @@
     </div>
     <script>
         // Debug flag to control the visibility of debug information
-        const DEBUG_MODE = false;
+        const DEBUG_MODE = true;
 
         // Debug logging function
         function debugLog(message, data = null) {
@@ -91,6 +91,7 @@
         // Listen for messages from the parent window (Moodle page)
         window.addEventListener('message', function(event) {
             if (event.origin !== "https://my.etonx.com/mod/page/view.php?id=33795") { // Change this to your Moodle domain
+                debugLog('Ignoring message from unknown origin:', event.origin);
                 return;
             }
             if (event.data && event.data.type === 'MOODLE_USER_ID') {
@@ -146,6 +147,7 @@
 
                     // Append user ID to the query parameters
                     queryParams.append('userID', userID);
+                    debugLog('Appending user ID to query parameters:', userID);
 
                     Object.entries(resultData).forEach(([key, value]) => {
                         queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
