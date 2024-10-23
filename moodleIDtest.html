@@ -86,15 +86,24 @@
             }
         }
 
+        let userID = 'Unknown User';
+
+        // Listen for messages from the parent window (Moodle page)
+        window.addEventListener('message', function(event) {
+            if (event.origin !== "https://my.etonx.com") { // Change this to your Moodle domain
+                return;
+            }
+            if (event.data && event.data.type === 'MOODLE_USER_ID') {
+                userID = event.data.userID;
+                debugLog('Received Moodle user ID from parent:', userID);
+            }
+        }, false);
+
         $(document).ready(function () {
             debugLog('Application initialized');
 
-            // Extract Moodle user ID from a global variable or an accessible element
-            let userID = 'Unknown User';
-            if (window.parent && window.parent.MOODLE_USER_ID) {
-                userID = window.parent.MOODLE_USER_ID;
-            }
-            debugLog('Extracted Moodle user ID:', userID);
+            // Request the Moodle user ID from the parent window
+            window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "https://my.etonx.com");
 
             const json = {
                 "questions": [
