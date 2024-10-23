@@ -1,6 +1,6 @@
 const themeJson = {
   "themeName": "default",
-  "colorPalette": "dark",
+  "colorPalette": "light",
   "isPanelless": false,
   "backgroundImage": "",
   "backgroundOpacity": 1,
@@ -13,7 +13,7 @@ const themeJson = {
     "--sjs-font-questiontitle-size": "20px",
     "--sjs-font-questiondescription-size": "18px",
     "--sjs-shadow-inner": "inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)",
-    "--sjs-font-editorfont-size": "24px",
+    "--sjs-font-editorfont-size": "18px",
     "--sjs-border-default": "rgba(0, 0, 0, 0.16)",
     "--sjs-border-light": "rgba(0, 0, 0, 0.09)",
     "--sjs-general-backcolor": "rgba(255, 255, 255, 1)",
