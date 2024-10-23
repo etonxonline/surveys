@@ -151,7 +151,7 @@
                         queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
                     });
 
-                    const url = 'https://script.google.com/macros/s/AKfycbw5E2fq802dFOJw4fTZSOIsi8wVkdqfko5_yBu842lYWKmN6DNXbXzZfRTdSSxgvN7T/exec' + '?' + queryParams.toString();
+                    const url = 'https://script.google.com/macros/s/AKfycbyrcC2mO_FJJwPmk4x_O4xz5iLjYl3m73FByzYN3nwM6Zn1BGEmlKW2WRrpzFYSFc6v/exec' + '?' + queryParams.toString();
                     debugLog('Submitting to URL:', url);
 
                     // Show loading icon while fetching data
@@ -201,7 +201,7 @@
 
             function drawChart() {
                 debugLog('Starting chart drawing process');
-                const sheetID = '1VJkOftL4T7OZ2eyE9y8LrfzXJP9xH_qYHRZ2YIn9600';
+                const sheetID = '1gOjtFLqz6k8qkv3o5BAAIE9pi5tul6d8urlcCNJ5QB8';
                 const queryUrl = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=Sheet1`;
                 debugLog('Querying spreadsheet:', queryUrl);
                 
