@@ -138,19 +138,6 @@
                     // Show loading icon while fetching data
                     document.getElementById('loadingIcon').style.display = 'block';
 
-                    // Display user's answers above the chart
-                    let userAnswersHtml = '<h3>Your Answers:</h3><ul>';
-                    Object.entries(resultData).forEach(([key, value]) => {
-                        if (typeof value === 'object') {
-                            for (let [question, answer] of Object.entries(value)) {
-                                userAnswersHtml += `<li><strong>${question}:</strong> ${answer}</li>`;
-                            }
-                        }
-                    });
-                    userAnswersHtml += '</ul>';
-                    document.getElementById('userAnswers').innerHTML = userAnswersHtml;
-                    document.getElementById('userAnswers').style.display = 'block';
-
                     fetch(url, {
                         method: 'GET',
                         mode: 'cors'
@@ -164,6 +151,19 @@
                         if (data.result === 'success') {
                             document.getElementById('chartContainer').style.display = 'block';
                             drawChart();
+
+                            // Display user's answers above the chart after chart loads
+                            let userAnswersHtml = '<h3>Your Answers:</h3><ul>';
+                            Object.entries(resultData).forEach(([key, value]) => {
+                                if (typeof value === 'object') {
+                                    for (let [question, answer] of Object.entries(value)) {
+                                        userAnswersHtml += `<li><strong>${question}:</strong> ${answer}</li>`;
+                                    }
+                                }
+                            });
+                            userAnswersHtml += '</ul>';
+                            document.getElementById('userAnswers').innerHTML = userAnswersHtml;
+                            document.getElementById('userAnswers').style.display = 'block';
                         } else {
                             throw new Error(data.message || 'Unknown error occurred');
                         }
