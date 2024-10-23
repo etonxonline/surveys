@@ -89,6 +89,18 @@
         $(document).ready(function () {
             debugLog('Application initialized');
 
+            // Extract Moodle user ID from the footer
+            let userID = 'Unknown User';
+            const loginInfo = document.querySelector('.logininfo a[href*="profile.php?id="]');
+            if (loginInfo) {
+                const profileUrl = loginInfo.href;
+                const matches = profileUrl.match(/id=(\d+)/);
+                if (matches && matches[1]) {
+                    userID = matches[1];
+                }
+            }
+            debugLog('Extracted Moodle user ID:', userID);
+
             const json = {
                 "questions": [
                     {
@@ -128,11 +140,14 @@
                     const resultData = result.data;
                     const queryParams = new URLSearchParams();
 
+                    // Append user ID to the query parameters
+                    queryParams.append('userID', userID);
+
                     Object.entries(resultData).forEach(([key, value]) => {
                         queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
                     });
 
-                    const url = 'https://script.google.com/macros/s/AKfycbyrcC2mO_FJJwPmk4x_O4xz5iLjYl3m73FByzYN3nwM6Zn1BGEmlKW2WRrpzFYSFc6v/exec' + '?' + queryParams.toString();
+                    const url = 'https://script.google.com/macros/s/AKfycbw5E2fq802dFOJw4fTZSOIsi8wVkdqfko5_yBu842lYWKmN6DNXbXzZfRTdSSxgvN7T/exec' + '?' + queryParams.toString();
                     debugLog('Submitting to URL:', url);
 
                     // Show loading icon while fetching data
@@ -151,19 +166,6 @@
                         if (data.result === 'success') {
                             document.getElementById('chartContainer').style.display = 'block';
                             drawChart();
-
-                            // Display user's answers above the chart after chart loads
-                            let userAnswersHtml = '<h3>Your Answers:</h3><ul>';
-                            Object.entries(resultData).forEach(([key, value]) => {
-                                if (typeof value === 'object') {
-                                    for (let [question, answer] of Object.entries(value)) {
-                                        userAnswersHtml += `<li><strong>${question}:</strong> ${answer}</li>`;
-                                    }
-                                }
-                            });
-                            userAnswersHtml += '</ul>';
-                            document.getElementById('userAnswers').innerHTML = userAnswersHtml;
-                            document.getElementById('userAnswers').style.display = 'block';
                         } else {
                             throw new Error(data.message || 'Unknown error occurred');
                         }
@@ -195,7 +197,7 @@
 
             function drawChart() {
                 debugLog('Starting chart drawing process');
-                const sheetID = '1gOjtFLqz6k8qkv3o5BAAIE9pi5tul6d8urlcCNJ5QB8';
+                const sheetID = '1VJkOftL4T7OZ2eyE9y8LrfzXJP9xH_qYHRZ2YIn9600';
                 const queryUrl = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=Sheet1`;
                 debugLog('Querying spreadsheet:', queryUrl);
                 
