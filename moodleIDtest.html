@@ -97,6 +97,9 @@
                 const matches = profileUrl.match(/id=(\d+)/);
                 if (matches && matches[1]) {
                     userID = matches[1];
+                    console.log('user ID = ', userID)
+                } else {
+                    console.log('Unknown user')
                 }
             }
             debugLog('Extracted Moodle user ID:', userID);
