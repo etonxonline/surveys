@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Results Visualization</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/survey-jquery@1.9.37/survey.jquery.min.js"></script>
-    <link href="https://unpkg.com/survey-core@1.9.37/survey.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/survey-core@1.12.7/survey.core.min.js"></script>
+    <script src="https://unpkg.com/survey-core@1.12.7/survey.i18n.min.js"></script>
+    <script src="https://unpkg.com/survey-core@1.12.7/themes/index.min.js"></script>
+    <script src="https://unpkg.com/survey-js-ui@1.12.7/survey-js-ui.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/survey-core@1.12.7/defaultV2.min.css" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
         #loadingIcon {
@@ -182,6 +185,7 @@
             });
 
             $("#surveyContainer").Survey({ model: survey });
+            survey.applyTheme(themeJson);
             debugLog('Survey rendered to container');
 
             google.charts.load('current', { packages: ['corechart'] });
