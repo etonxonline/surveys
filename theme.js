@@ -10,7 +10,7 @@ const themeJson = {
     "--sjs-corner-radius": "4px",
     "--sjs-base-unit": "8px",
     "--sjs-shadow-small": "0px 1px 2px 0px rgba(0, 0, 0, 0.15)",
-    "--sjs-font-questiontitle-size": "20px",
+    "--sjs-font-questiontitle-size": "18px",
     "--sjs-font-questiondescription-size": "18px",
     "--sjs-shadow-inner": "inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)",
     "--sjs-font-editorfont-size": "18px",
