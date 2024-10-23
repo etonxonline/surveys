@@ -84,7 +84,7 @@ const themeJson = {
     "--sjs-article-font-default-lineHeight": "28px",
     "--sjs-article-font-default-paragraphIndent": "0px",
     "--sjs-article-font-default-textCase": "none",
-    "--sjs-general-backcolor-dim": "rgba(243, 243, 243, 1)",
+    "--sjs-general-backcolor-dim": "#FFFFFF",
     "--sjs-primary-backcolor": "rgba(25, 179, 148, 1)",
     "--sjs-primary-backcolor-dark": "rgba(20, 164, 139, 1)",
     "--sjs-primary-backcolor-light": "rgba(25, 179, 148, 0.1)",
