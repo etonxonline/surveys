@@ -50,7 +50,7 @@
     </style>
 </head>
 <body>
-    LOL
+    LOLlypot
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -118,6 +118,7 @@
             const jsonFilePath = config.jsonFile;
             const googleScriptUrl = config.googleScriptUrl;
             const spreadsheetID = config.spreadsheetID;
+            console.log("spreadsheetID = ", spreadsheetID)
 
             // Load the survey JSON dynamically
             $.getJSON(jsonFilePath, function(surveyJson) {
