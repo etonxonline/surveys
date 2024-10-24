@@ -183,67 +183,69 @@
         }
 
         function handleQueryResponse(response, surveyJson) {
-            if (response.isError()) {
-                debugLog('Error in spreadsheet query:', {
-                    message: response.getMessage(),
-                    detailedMessage: response.getDetailedMessage()
-                });
-                return;
-            }
+    if (response.isError()) {
+        debugLog('Error in spreadsheet query:', {
+            message: response.getMessage(),
+            detailedMessage: response.getDetailedMessage()
+        });
+        return;
+    }
 
-            try {
-                const data = response.getDataTable();
-                drawChart(data, surveyJson);
-            } catch (error) {
-                debugLog('Error in handling query response:', error);
+    try {
+        const data = response.getDataTable();
+        
+        // Skip the first two columns (timestamp and userID)
+        drawChart(data, surveyJson);
+    } catch (error) {
+        debugLog('Error in handling query response:', error);
+    }
+}
+
+function drawChart(data, surveyJson) {
+    const processedData = new google.visualization.DataTable();
+    processedData.addColumn('string', 'Question');
+
+    // Dynamically add columns from the survey JSON matrix columns
+    const matrixColumns = surveyJson.questions[0].columns;
+    matrixColumns.forEach(column => {
+        processedData.addColumn('number', `${column} (%)`);
+    });
+
+    // Process each question (row) dynamically
+    const questions = surveyJson.questions[0].rows;
+    questions.forEach((question, questionIndex) => {
+        const responseCounts = new Array(matrixColumns.length).fill(0);
+        let totalResponses = 0;
+
+        // Count responses for each question (starting from the 3rd column in the data)
+        for (let row = 0; row < data.getNumberOfRows(); row++) {
+            const response = data.getValue(row, questionIndex + 2);  // Shift index by 2 to skip timestamp and userID
+            const responseIndex = matrixColumns.indexOf(response);
+            if (responseIndex !== -1) {
+                responseCounts[responseIndex]++;
+                totalResponses++;
             }
         }
 
-        function drawChart(data, surveyJson) {
-            const processedData = new google.visualization.DataTable();
-            processedData.addColumn('string', 'Question');
+        const percentages = totalResponses > 0
+            ? responseCounts.map(count => (count / totalResponses) * 100)
+            : new Array(matrixColumns.length).fill(0);
 
-            // Dynamically add columns from the survey JSON matrix columns
-            const matrixColumns = surveyJson.questions[0].columns;
-            matrixColumns.forEach(column => {
-                processedData.addColumn('number', `${column} (%)`);
-            });
+        processedData.addRow([question, ...percentages]);
+    });
 
-            // Process each question (row) dynamically
-            const questions = surveyJson.questions[0].rows;
-            questions.forEach((question, questionIndex) => {
-                const responseCounts = new Array(matrixColumns.length).fill(0);
-                let totalResponses = 0;
+    const options = {
+        title: 'Survey Results - Response Distribution (%)',
+        hAxis: { title: 'Survey Statements' },
+        vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+        isStacked: true,
+        legend: { position: 'top', maxLines: 3 },
+        chartArea: { width: '90%', height: '75%' }
+    };
 
-                // Count responses for each question
-                for (let row = 0; row < data.getNumberOfRows(); row++) {
-                    const response = data.getValue(row, questionIndex + 1);
-                    const responseIndex = matrixColumns.indexOf(response);
-                    if (responseIndex !== -1) {
-                        responseCounts[responseIndex]++;
-                        totalResponses++;
-                    }
-                }
-
-                const percentages = totalResponses > 0
-                    ? responseCounts.map(count => (count / totalResponses) * 100)
-                    : new Array(matrixColumns.length).fill(0);
-                
-                processedData.addRow([question, ...percentages]);
-            });
-
-            const options = {
-                title: 'Survey Results - Response Distribution (%)',
-                hAxis: { title: 'Survey Statements' },
-                vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
-                isStacked: true,
-                legend: { position: 'top', maxLines: 3 },
-                chartArea: { width: '90%', height: '75%' }
-            };
-
-            const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
-            chart.draw(processedData, options);
-        }
+    const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+    chart.draw(processedData, options);
+    }
     </script>
 </body>
 </html>
