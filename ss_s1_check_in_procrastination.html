@@ -292,43 +292,44 @@
         }
     }
 
+
     function drawChart(data, surveyJson) {
         const processedData = new google.visualization.DataTable();
         processedData.addColumn('string', 'Question');
-
+    
         // Dynamically add columns from the survey JSON matrix columns
         const matrixColumns = surveyJson.questions[0].columns;
         matrixColumns.forEach(column => {
             processedData.addColumn('number', `${column} (%)`);
         });
-
+    
         debugLog('Processing questions for chart:', surveyJson.questions[0].rows);
-
+    
         // Process each question (row) dynamically
         const questions = surveyJson.questions[0].rows;
         questions.forEach((question, questionIndex) => {
             const responseCounts = new Array(matrixColumns.length).fill(0);
             let totalResponses = 0;
-
+    
             // Count responses for each question (starting from the 3rd column in the data)
             for (let row = 0; row < data.getNumberOfRows(); row++) {
-                const response = data.getValue(row, questionIndex + 2);  // Shift index by 2 to skip timestamp and userID
+                const response = data.getValue(row, questionIndex + 2);  // Adjust this index according to your data structure
                 const responseIndex = matrixColumns.indexOf(response);
                 if (responseIndex !== -1) {
                     responseCounts[responseIndex]++;
                     totalResponses++;
                 }
             }
-
+    
             debugLog(`Response counts for "${question}":`, responseCounts);
-
+    
             const percentages = totalResponses > 0
                 ? responseCounts.map(count => (count / totalResponses) * 100)
                 : new Array(matrixColumns.length).fill(0);
-
+    
             processedData.addRow([question, ...percentages]);
         });
-
+    
         const options = {
             title: 'Survey Results - Response Distribution (%)',
             hAxis: { title: 'Survey Statements' },
@@ -337,7 +338,7 @@
             legend: { position: 'top', maxLines: 3 },
             chartArea: { width: '90%', height: '75%' }
         };
-
+    
         const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
         chart.draw(processedData, options);
     }
