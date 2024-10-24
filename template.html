@@ -50,6 +50,7 @@
     </style>
 </head>
 <body>
+    LOL
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -240,13 +241,12 @@
             document.getElementById('loadingIcon').style.display = 'none';
         });
     }
-
     function fetchSurveyDataAndRenderChart(spreadsheetID, surveyJson) {
         google.charts.load('current', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(() => {
             const queryUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetID}/gviz/tq?sheet=Sheet1`;
-            debugLog('Querying spreadsheet:', queryUrl);
-
+            debugLog('Querying spreadsheet for chart data:', queryUrl);
+    
             const query = new google.visualization.Query(queryUrl);
             query.setQuery('SELECT *');
             query.send((response) => handleQueryResponse(response, surveyJson));
@@ -261,17 +261,20 @@
             });
             return;
         }
-
+    
         try {
             const data = response.getDataTable();
-            debugLog('Fetched data table:', data);  // Log the fetched data
-
-            // Skip the first two columns (timestamp and userID)
+            debugLog('Fetched data table for chart rendering:', data);  // Log the fetched data
+    
+            // Ensure the data is processed correctly
             drawChart(data, surveyJson);
         } catch (error) {
-            debugLog('Error in handling query response:', error);
+            debugLog('Error in handling query response for chart rendering:', error);
         }
     }
+
+
+
 
     function drawChart(data, surveyJson) {
         const processedData = new google.visualization.DataTable();
