@@ -200,7 +200,7 @@
     function renderSurvey(surveyJson, googleScriptUrl, spreadsheetID) {
         const survey = new Survey.Model(surveyJson);
         $("#surveyContainer").Survey({ model: survey });
-        // survey.applyTheme(themeJson);
+        survey.applyTheme(themeJson);
     
         survey.onComplete.add(function (result) {
             debugLog('Survey completed, processing results:', result.data);
