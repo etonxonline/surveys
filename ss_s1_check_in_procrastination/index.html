@@ -172,7 +172,6 @@
                 debugLog(`User ${userID} does not exist, rendering survey.`);
                 renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
             }
-            debugLog(`Comparing storedUserID: "${storedUserID}" with userID: "${userID}"`);
         }, 500);  // Add a 500ms delay
     }
 
