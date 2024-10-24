@@ -335,10 +335,11 @@
         const options = {
             title: 'Survey Results - Response Distribution (%)',
             hAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
-            vAxis: { title: 'Survey Statements' },
+            vAxis: { title: 'Survey Statements', textStyle: { fontSize: 12 } },
             isStacked: true,
             legend: { position: 'top', maxLines: 3 },
-            chartArea: { width: '80%', height: '90%' }
+            chartArea: { width: '70%', height: '90%' },  // Adjust the width of the chart area
+            bar: { groupWidth: '70%' },  // Adjust the bar width
         };
     
         // Render as horizontal stacked bar chart
