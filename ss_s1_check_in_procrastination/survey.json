@@ -2,7 +2,7 @@
   "questions": [
     {
       "type": "matrix",
-      "name": "Choose from the options below:",
+      "name": "How would you rate yourself for each of these skills? (1 = lowest, 5 = highest)",
       "columns": [
         "1",
         "2",
