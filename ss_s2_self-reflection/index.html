@@ -6,6 +6,7 @@
     <title>Survey Results Visualization</title>
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="https://unpkg.com/survey-core@1.12.7/defaultV2.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.core.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.i18n.min.js"></script>
@@ -47,6 +48,19 @@
             #chartContainer {
                 height: 400px;
             }
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Set font for SurveyJS components */
+        .sd-root {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Set font for user results */
+        #userAnswers {
+            font-family: 'Montserrat', sans-serif;
         }
     </style>
 </head>
@@ -341,10 +355,10 @@
             // Set up chart options with a red-to-green color scheme
             const options = {
                 title: 'All Survey Results - Percentage of Ratings for Each Skill \n(1 = lowest, 5 = highest)',
-                hAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+                hAxis: { title: 'Percentage', minValue: 0, maxValue: 100, textStyle: {fontName: 'Montserrat'} },
                 vAxis: {
                     title: '', 
-                    textStyle: { fontSize: 14, bold: true },
+                    textStyle: { fontSize: 14, bold: true, fontName: 'Montserrat' },
                     textPosition: 'out',  // Ensure text is placed outside the chart area
                     slantedText: false,   // Keep labels straight
                 },
