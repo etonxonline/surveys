@@ -199,29 +199,30 @@
                 submitSurveyData(result.data, surveyJson, googleScriptUrl);
             });
         }
-
         function submitSurveyData(surveyData, surveyJson, googleScriptUrl) {
+            debugLog('Submitting survey data:', surveyData);  // Add this line to log the survey data
+        
             const queryParams = new URLSearchParams();
             Object.entries(surveyData).forEach(([key, value]) => {
                 queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
             });
-
+        
             // Add user ID to the query params
             queryParams.append('userID', userID);
-
+        
             const url = `${googleScriptUrl}?${queryParams.toString()}`;
-            debugLog('Submitting to Google Script URL:', url);
-
+            debugLog('Submitting to Google Script URL:', url);  // Add this line to log the submission URL
+        
             // Show loading icon while fetching data
             document.getElementById('loadingIcon').style.display = 'block';
-
+        
             fetch(url, {
                 method: 'GET',
                 mode: 'cors'
             })
             .then(response => response.json())
             .then(data => {
-                debugLog('Processed response data:', data);
+                debugLog('Processed response data:', data);  // Log the response data
                 if (data.result === 'success') {
                     document.getElementById('chartContainer').style.display = 'block';
                     fetchSurveyDataAndRenderChart(spreadsheetID, surveyJson);
@@ -230,7 +231,7 @@
                 }
             })
             .catch(error => {
-                debugLog('Error in survey submission:', error);
+                debugLog('Error in survey submission:', error);  // Log the error here
                 alert('Failed to submit survey. Please try again.');
             })
             .finally(() => {
