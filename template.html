@@ -120,18 +120,87 @@
 
                 // Load the survey JSON dynamically
                 $.getJSON(jsonFilePath, function(surveyJson) {
-                    const survey = new Survey.Model(surveyJson);
-                    $("#surveyContainer").Survey({ model: survey });
-
-                    survey.onComplete.add(function (result) {
-                        debugLog('Survey completed, processing results:', result.data);
-                        submitSurveyData(result.data, surveyJson, googleScriptUrl, spreadsheetID);
-                    });
+                    fetchSurveyDataAndCheckUser(spreadsheetID, surveyJson, googleScriptUrl);
                 });
             });
         });
 
-        function submitSurveyData(surveyData, surveyJson, googleScriptUrl, spreadsheetID) {
+        function fetchSurveyDataAndCheckUser(spreadsheetID, surveyJson, googleScriptUrl) {
+            google.charts.load('current', { packages: ['corechart'] });
+            google.charts.setOnLoadCallback(() => {
+                const queryUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetID}/gviz/tq?sheet=Sheet1`;
+                debugLog('Querying spreadsheet for user check:', queryUrl);
+
+                const query = new google.visualization.Query(queryUrl);
+                query.setQuery('SELECT *');
+                query.send(function(response) {
+                    handleUserCheckResponse(response, surveyJson, googleScriptUrl);
+                });
+            });
+        }
+
+        function handleUserCheckResponse(response, surveyJson, googleScriptUrl) {
+            if (response.isError()) {
+                debugLog('Error in spreadsheet query:', {
+                    message: response.getMessage(),
+                    detailedMessage: response.getDetailedMessage()
+                });
+                return;
+            }
+
+            const data = response.getDataTable();
+            let userExists = false;
+            let userRowData = null;
+
+            // Iterate through the rows and check if the userID exists (skip if userID is 'Unknown')
+            for (let row = 0; row < data.getNumberOfRows(); row++) {
+                const storedUserID = data.getValue(row, 1);  // The userID is in the second column
+
+                if (storedUserID === userID && userID !== 'Unknown User') {
+                    userExists = true;
+                    userRowData = data;
+                    break;
+                }
+            }
+
+            if (userExists) {
+                debugLog('User already exists, skipping survey and showing chart.');
+                showPreExistingResults(userRowData, surveyJson);  // Display existing data and chart
+            } else {
+                debugLog('User does not exist, rendering survey.');
+                renderSurvey(surveyJson, googleScriptUrl);  // Allow user to complete the survey
+            }
+        }
+
+        function showPreExistingResults(userRowData, surveyJson) {
+            // Show the chart with the user's original answers
+            document.getElementById('chartContainer').style.display = 'block';
+
+            // Draw the chart with existing data
+            drawChart(userRowData, surveyJson);
+
+            // Display the user's original answers below the chart
+            const userAnswersContainer = document.getElementById('userAnswers');
+            userAnswersContainer.style.display = 'block';
+            userAnswersContainer.innerHTML = `<strong>Your previous answers:</strong><br>`;
+
+            const questions = surveyJson.questions[0].rows;
+            for (let i = 0; i < questions.length; i++) {
+                userAnswersContainer.innerHTML += `${questions[i]}: ${userRowData.getValue(0, i + 2)}<br>`;  // Displaying from 3rd column
+            }
+        }
+
+        function renderSurvey(surveyJson, googleScriptUrl) {
+            const survey = new Survey.Model(surveyJson);
+            $("#surveyContainer").Survey({ model: survey });
+
+            survey.onComplete.add(function (result) {
+                debugLog('Survey completed, processing results:', result.data);
+                submitSurveyData(result.data, surveyJson, googleScriptUrl);
+            });
+        }
+
+        function submitSurveyData(surveyData, surveyJson, googleScriptUrl) {
             const queryParams = new URLSearchParams();
             Object.entries(surveyData).forEach(([key, value]) => {
                 queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
@@ -183,69 +252,69 @@
         }
 
         function handleQueryResponse(response, surveyJson) {
-    if (response.isError()) {
-        debugLog('Error in spreadsheet query:', {
-            message: response.getMessage(),
-            detailedMessage: response.getDetailedMessage()
-        });
-        return;
-    }
+            if (response.isError()) {
+                debugLog('Error in spreadsheet query:', {
+                    message: response.getMessage(),
+                    detailedMessage: response.getDetailedMessage()
+                });
+                return;
+            }
 
-    try {
-        const data = response.getDataTable();
-        
-        // Skip the first two columns (timestamp and userID)
-        drawChart(data, surveyJson);
-    } catch (error) {
-        debugLog('Error in handling query response:', error);
-    }
-}
-
-function drawChart(data, surveyJson) {
-    const processedData = new google.visualization.DataTable();
-    processedData.addColumn('string', 'Question');
-
-    // Dynamically add columns from the survey JSON matrix columns
-    const matrixColumns = surveyJson.questions[0].columns;
-    matrixColumns.forEach(column => {
-        processedData.addColumn('number', `${column} (%)`);
-    });
-
-    // Process each question (row) dynamically
-    const questions = surveyJson.questions[0].rows;
-    questions.forEach((question, questionIndex) => {
-        const responseCounts = new Array(matrixColumns.length).fill(0);
-        let totalResponses = 0;
-
-        // Count responses for each question (starting from the 3rd column in the data)
-        for (let row = 0; row < data.getNumberOfRows(); row++) {
-            const response = data.getValue(row, questionIndex + 2);  // Shift index by 2 to skip timestamp and userID
-            const responseIndex = matrixColumns.indexOf(response);
-            if (responseIndex !== -1) {
-                responseCounts[responseIndex]++;
-                totalResponses++;
+            try {
+                const data = response.getDataTable();
+                
+                // Skip the first two columns (timestamp and userID)
+                drawChart(data, surveyJson);
+            } catch (error) {
+                debugLog('Error in handling query response:', error);
             }
         }
 
-        const percentages = totalResponses > 0
-            ? responseCounts.map(count => (count / totalResponses) * 100)
-            : new Array(matrixColumns.length).fill(0);
+        function drawChart(data, surveyJson) {
+            const processedData = new google.visualization.DataTable();
+            processedData.addColumn('string', 'Question');
 
-        processedData.addRow([question, ...percentages]);
-    });
+            // Dynamically add columns from the survey JSON matrix columns
+            const matrixColumns = surveyJson.questions[0].columns;
+            matrixColumns.forEach(column => {
+                processedData.addColumn('number', `${column} (%)`);
+            });
 
-    const options = {
-        title: 'Survey Results - Response Distribution (%)',
-        hAxis: { title: 'Survey Statements' },
-        vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
-        isStacked: true,
-        legend: { position: 'top', maxLines: 3 },
-        chartArea: { width: '90%', height: '75%' }
-    };
+            // Process each question (row) dynamically
+            const questions = surveyJson.questions[0].rows;
+            questions.forEach((question, questionIndex) => {
+                const responseCounts = new Array(matrixColumns.length).fill(0);
+                let totalResponses = 0;
 
-    const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
-    chart.draw(processedData, options);
-    }
+                // Count responses for each question (starting from the 3rd column in the data)
+                for (let row = 0; row < data.getNumberOfRows(); row++) {
+                    const response = data.getValue(row, questionIndex + 2);  // Shift index by 2 to skip timestamp and userID
+                    const responseIndex = matrixColumns.indexOf(response);
+                    if (responseIndex !== -1) {
+                        responseCounts[responseIndex]++;
+                        totalResponses++;
+                    }
+                }
+
+                const percentages = totalResponses > 0
+                    ? responseCounts.map(count => (count / totalResponses) * 100)
+                    : new Array(matrixColumns.length).fill(0);
+
+                processedData.addRow([question, ...percentages]);
+            });
+
+            const options = {
+                title: 'Survey Results - Response Distribution (%)',
+                hAxis: { title: 'Survey Statements' },
+                vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+                isStacked: true,
+                legend: { position: 'top', maxLines: 3 },
+                chartArea: { width: '90%', height: '75%' }
+            };
+
+            const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+            chart.draw(processedData, options);
+        }
     </script>
 </body>
 </html>
