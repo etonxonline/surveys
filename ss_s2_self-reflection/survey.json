@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "Rate yourself from 1 (least like me) - 5 (most like me) for the following statements.",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "I reflect on my work and my actions on a regular basis when I'm studying.",
+        "After a study task, I reflect on what I've done well and what I could improve.",
+        "I think about tools and techniques that are useful to help me reflect.",
+        "I actively seek out feedback even in situations where it is not automatically offered.",
+        "When I receive feedback, I actively reflect on it.",
+        "Before I start a task, I look through feedback on similar tasks to see if there is any useful advice.",
+        "After I receive feedback, I discuss it with a friend or family member."
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
