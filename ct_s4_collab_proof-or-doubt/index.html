@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Results Visualization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.core.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.i18n.min.js"></script>
@@ -46,6 +47,19 @@
             #chartContainer {
                 height: 400px;
             }
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Set font for SurveyJS components */
+        .sd-root {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Set font for user results */
+        #userAnswers {
+            font-family: 'Montserrat', sans-serif;
         }
     </style>
 </head>
@@ -338,8 +352,8 @@
 
         const options = {
             title: 'Survey Results - Response Distribution (%)',
-            hAxis: { title: 'Survey Statements', textStyle: { bold: true } },
-            vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+            hAxis: { title: 'Survey Statements', textStyle: { bold: true, fontName: 'Montserrat'} },
+            vAxis: { title: 'Percentage', minValue: 0, maxValue: 100, textStyle: {fontName: 'Montserrat'} },
             isStacked: true,
             legend: { position: 'top', maxLines: 3 },
             chartArea: { width: '90%', height: '75%' },
