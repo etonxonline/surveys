@@ -2,7 +2,7 @@
   "questions": [
     {
       "type": "matrix",
-      "name": "Study Habits and Triggers",
+      "name": "Choose from the options below:",
       "columns": [
         "1",
         "2",
