@@ -50,7 +50,7 @@
     </style>
 </head>
 <body>
-    NEW
+    NEWEST
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -148,29 +148,31 @@
             });
             return;
         }
-
+    
         const data = response.getDataTable();
         let userExists = false;
         let userRowData = null;
-
+    
         // Iterate through the rows and check if the userID exists (skip if userID is 'Unknown')
-        for (let row = 0; row < data.getNumberOfRows(); row++) {
-            const storedUserID = data.getValue(row, 1);  // The userID is in the second column
-
-            if (storedUserID === userID && userID !== 'Unknown User') {
-                userExists = true;
-                userRowData = data;
-                break;
+        setTimeout(() => {
+            for (let row = 0; row < data.getNumberOfRows(); row++) {
+                const storedUserID = data.getValue(row, 1);  // The userID is in the second column
+    
+                if (storedUserID === userID && userID !== 'Unknown User') {
+                    userExists = true;
+                    userRowData = data;
+                    break;
+                }
             }
-        }
-
-        if (userExists) {
-            debugLog('User already exists, skipping survey and showing chart.');
-            showPreExistingResults(userRowData, surveyJson);
-        } else {
-            debugLog('User does not exist, rendering survey.');
-            renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
-        }
+    
+            if (userExists) {
+                debugLog('User already exists, skipping survey and showing chart.');
+                showPreExistingResults(userRowData, surveyJson);
+            } else {
+                debugLog('User does not exist, rendering survey.');
+                renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
+            }
+        }, 500);  // Add a 500ms delay
     }
 
     function showPreExistingResults(userRowData, surveyJson) {
