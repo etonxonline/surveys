@@ -92,7 +92,7 @@
         // Listen for messages from the parent window (Moodle page)
         window.addEventListener('message', function(event) {
             debugLog('Received message from parent:', event);
-            if (event.origin !== "https://my.etonx.com") { // Change this to your Moodle domain
+            if (event.origin !== "https://my.etonx.com/mod/page/view.php?id=33795") { // Change this to your Moodle domain
                 debugLog('Ignoring message from unknown origin:', event.origin);
                 return;
             }
@@ -107,7 +107,7 @@
             debugLog('Application initialized');
 
             // Request the Moodle user ID from the parent window
-            window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "https://my.etonx.com");
+            window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "https://my.etonx.com/mod/page/view.php?id=33795");
 
             const json = {
                 "questions": [
