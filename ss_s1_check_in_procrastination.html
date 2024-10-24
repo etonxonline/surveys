@@ -331,9 +331,21 @@
             processedData.addRow([question, ...percentages]);
         });
     
+        // const options = {
+        //     title: 'Survey Results - Response Distribution (%)',
+        //     hAxis: { title: 'Survey Statements' },
+        //     vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+        //     isStacked: true,
+        //     legend: { position: 'top', maxLines: 3 },
+        //     chartArea: { width: '90%', height: '75%' }
+        // };
         const options = {
             title: 'Survey Results - Response Distribution (%)',
-            hAxis: { title: 'Survey Statements' },
+            hAxis: { 
+                title: 'Survey Statements',
+                slantedText: true,   // Enable slanted text
+                slantedTextAngle: 45 // Set the angle (45 degrees in this example)
+            },
             vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
             isStacked: true,
             legend: { position: 'top', maxLines: 3 },
