@@ -292,7 +292,6 @@
         }
     }
 
-
     function drawChart(data, surveyJson) {
         const processedData = new google.visualization.DataTable();
         processedData.addColumn('string', 'Question');
@@ -313,11 +312,13 @@
     
             // Count responses for each question (starting from the 3rd column in the data)
             for (let row = 0; row < data.getNumberOfRows(); row++) {
-                const response = data.getValue(row, questionIndex + 2);  // Adjust this index according to your data structure
-                const responseIndex = matrixColumns.indexOf(response);
-                if (responseIndex !== -1) {
-                    responseCounts[responseIndex]++;
-                    totalResponses++;
+                const response = data.getValue(row, questionIndex + 2);  // Fetch response starting from 3rd column
+                if (response !== null) {  // Ensure response is not null
+                    const responseIndex = matrixColumns.indexOf(response.toString());  // Convert to string for comparison
+                    if (responseIndex !== -1) {
+                        responseCounts[responseIndex]++;
+                        totalResponses++;
+                    }
                 }
             }
     
@@ -342,6 +343,7 @@
         const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
         chart.draw(processedData, options);
     }
+
     </script>
 
 </body>
