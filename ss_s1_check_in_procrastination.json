@@ -1,1 +1,29 @@
-
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Choose from the options below:",
+            "columns": [
+                "A: proved beyond all possible doubt.",
+                "B: proved beyond all reasonable doubt.",
+                "C: not proved beyond all reasonable doubt."
+            ],
+            "rows": [
+                "Grass is green.",
+                "Trees exist.",
+                "You exist.",
+                "Paris is the capital of France.",
+                "There isn't life beyond Earth.",
+                "The Earth goes around the Sun."
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
