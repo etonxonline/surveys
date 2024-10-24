@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Results Visualization</title>
+    <link rel="stylesheet" href="ss_s1_check_in_procrastination.css">
+    <link rel="stylesheet" href="https://unpkg.com/survey-core@1.12.7/defaultV2.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.core.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/survey.i18n.min.js"></script>
     <script src="https://unpkg.com/survey-core@1.12.7/themes/index.min.js"></script>
     <script src="https://unpkg.com/survey-js-ui@1.12.7/survey-js-ui.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/survey-core@1.12.7/defaultV2.min.css" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
         #loadingIcon {
@@ -50,7 +51,6 @@
     </style>
 </head>
 <body>
-    TESTING123456
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -66,7 +66,7 @@
 
     <script>
     // Debug flag to control the visibility of debug information
-    const DEBUG_MODE = true;
+    const DEBUG_MODE = false;
 
     // Debug logging function
     function debugLog(message, data = null) {
@@ -200,6 +200,7 @@
     function renderSurvey(surveyJson, googleScriptUrl, spreadsheetID) {
         const survey = new Survey.Model(surveyJson);
         $("#surveyContainer").Survey({ model: survey });
+        // survey.applyTheme(themeJson);
     
         survey.onComplete.add(function (result) {
             debugLog('Survey completed, processing results:', result.data);
@@ -306,50 +307,48 @@
     
         // Process each question (row) dynamically
         const questions = surveyJson.questions[0].rows;
-        questions.forEach((question, questionIndex) => {
-            const responseCounts = new Array(matrixColumns.length).fill(0);
-            let totalResponses = 0;
-    
-            // Count responses for each question (starting from the 3rd column in the data)
-            for (let row = 0; row < data.getNumberOfRows(); row++) {
-                const response = data.getValue(row, questionIndex + 2);  // Adjust this index according to your data structure
-                if (response !== null) {
-                    const responseIndex = matrixColumns.indexOf(response.toString());  // Convert to string for comparison
-                    if (responseIndex !== -1) {
-                        responseCounts[responseIndex]++;
-                        totalResponses++;
+            questions.forEach((question, questionIndex) => {
+                const responseCounts = new Array(matrixColumns.length).fill(0);
+                let totalResponses = 0;
+        
+                // Count responses for each question (starting from the 3rd column in the data)
+                for (let row = 0; row < data.getNumberOfRows(); row++) {
+                    const response = data.getValue(row, questionIndex + 2);  // Adjust this index according to your data structure
+                    if (response !== null) {
+                        const responseIndex = matrixColumns.indexOf(response.toString());  // Convert to string for comparison
+                        if (responseIndex !== -1) {
+                            responseCounts[responseIndex]++;
+                            totalResponses++;
+                        }
                     }
                 }
-            }
+        
+                debugLog(`Response counts for "${question}":`, responseCounts);
+        
+                const percentages = totalResponses > 0
+                    ? responseCounts.map(count => (count / totalResponses) * 100)
+                    : new Array(matrixColumns.length).fill(0);
+        
+                processedData.addRow([question, ...percentages]);
+            });
+        
+            // Set up chart options with a red-to-green color scheme
+            const options = {
+                title: 'Survey Results - Response Distribution (%)',
+                hAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
+                vAxis: { title: 'Survey Statements', textStyle: { fontSize: 12 } },
+                isStacked: true,
+                legend: { position: 'top', maxLines: 3 },
+                chartArea: { width: '70%', height: '80%' },  // Adjust the width and height of the chart area
+                bar: { groupWidth: '60%' },  // Decrease groupWidth for space between bars
+                colors: ['#d73027', '#fc8d59', '#fee08b', '#d9ef8b', '#1a9850'],  // Red (1) to Green (5)
+            };
+        
+            // Render as horizontal stacked bar chart
+            const chart = new google.visualization.BarChart(document.getElementById('chartContainer'));
+            chart.draw(processedData, options);
+        }
     
-            debugLog(`Response counts for "${question}":`, responseCounts);
-    
-            const percentages = totalResponses > 0
-                ? responseCounts.map(count => (count / totalResponses) * 100)
-                : new Array(matrixColumns.length).fill(0);
-    
-            processedData.addRow([question, ...percentages]);
-        });
-    
-        // Set up chart options
-        const options = {
-            title: 'Survey Results - Response Distribution (%)',
-            hAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
-            vAxis: { title: 'Survey Statements', textStyle: { fontSize: 12 } },
-            isStacked: true,
-            legend: { position: 'top', maxLines: 3 },
-            chartArea: { width: '70%', height: '80%' },  // Adjust chart area width and height
-            bar: { groupWidth: '70%' },  // Adjust the bar width
-            height: 500 + (questions.length * 30),  // Increase height based on the number of questions
-        };
-    
-        // Render as horizontal stacked bar chart
-        const chart = new google.visualization.BarChart(document.getElementById('chartContainer'));
-        chart.draw(processedData, options);
-    }
-
-
     </script>
-
 </body>
 </html>
