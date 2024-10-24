@@ -50,7 +50,7 @@
     </style>
 </head>
 <body>
-    NEWEST
+    NEWNEW
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -160,48 +160,62 @@
     
                 if (storedUserID === userID && userID !== 'Unknown User') {
                     userExists = true;
-                    userRowData = data;
+                    userRowData = row;  // Use row index, not entire data table
                     break;
                 }
             }
     
             if (userExists) {
                 debugLog('User already exists, skipping survey and showing chart.');
-                showPreExistingResults(userRowData, surveyJson);
+                showPreExistingResults(data, userRowData, surveyJson);  // Pass correct row index
             } else {
                 debugLog('User does not exist, rendering survey.');
                 renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
             }
         }, 500);  // Add a 500ms delay
     }
-
-    function showPreExistingResults(userRowData, surveyJson) {
+    
+    function showPreExistingResults(data, userRowDataIndex, surveyJson) {
         // Show the chart with the user's original answers
         document.getElementById('chartContainer').style.display = 'block';
-
+    
         // Draw the chart with existing data
-        drawChart(userRowData, surveyJson);
-
+        drawChart(data, surveyJson);
+    
         // Display the user's original answers below the chart
         const userAnswersContainer = document.getElementById('userAnswers');
         userAnswersContainer.style.display = 'block';
         userAnswersContainer.innerHTML = `<strong>Your previous answers:</strong><br>`;
-
+    
         const questions = surveyJson.questions[0].rows;
+        
         for (let i = 0; i < questions.length; i++) {
-            userAnswersContainer.innerHTML += `${questions[i]}: ${userRowData.getValue(0, i + 2)}<br>`;  // Displaying from 3rd column
+            const userAnswer = data.getValue(userRowDataIndex, i + 2);  // Fetch user's actual answer from the correct row
+            userAnswersContainer.innerHTML += `${questions[i]}: ${userAnswer}<br>`;
         }
     }
-
+    
     function renderSurvey(surveyJson, googleScriptUrl, spreadsheetID) {
         const survey = new Survey.Model(surveyJson);
         $("#surveyContainer").Survey({ model: survey });
-
+    
         survey.onComplete.add(function (result) {
             debugLog('Survey completed, processing results:', result.data);
             submitSurveyData(result.data, surveyJson, googleScriptUrl, spreadsheetID); // Now passing spreadsheetID
+    
+            // Display the new user's answers below the chart
+            const userAnswersContainer = document.getElementById('userAnswers');
+            userAnswersContainer.style.display = 'block';
+            userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
+    
+            const questions = surveyJson.questions[0].rows;
+            const userData = result.data['Choose from the options below:'];  // Adjust this as per your JSON structure
+            for (const [question, answer] of Object.entries(userData)) {
+                userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
+            }
         });
     }
+    
 
     function submitSurveyData(surveyData, surveyJson, googleScriptUrl, spreadsheetID) {
         debugLog('Submitting survey data:', surveyData);
