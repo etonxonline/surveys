@@ -341,14 +341,27 @@
         
             // Set up chart options with a red-to-green color scheme
             const options = {
-                title: 'All Survey Results - Percentage of ratings for each statement (1 = lowest, 5 = highest)',
+                title: 'All Survey Results - Percentage of Ratings for Each Skill (1 = lowest, 5 = highest)',
                 hAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
-                vAxis: { title: 'Survey Statements', textStyle: { fontSize: 12 } },
+                vAxis: {
+                    title: '', 
+                    textStyle: { fontSize: 14 },
+                    textPosition: 'out',  // Ensure text is placed outside the chart area
+                    slantedText: false,   // Keep labels straight
+                },
                 isStacked: true,
                 legend: { position: 'top', maxLines: 3 },
-                chartArea: { width: '70%', height: '80%' },  // Adjust the width and height of the chart area
+                chartArea: {
+                    width: '70%', 
+                    height: '80%',
+                    left: 350  // Increase this to give more space for the labels
+                },
                 bar: { groupWidth: '60%' },  // Decrease groupWidth for space between bars
                 colors: ['#d73027', '#fc8d59', '#fee08b', '#d9ef8b', '#1a9850'],  // Red (1) to Green (5)
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                }
             };
         
             // Render as horizontal stacked bar chart
