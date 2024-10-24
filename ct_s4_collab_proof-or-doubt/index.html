@@ -342,7 +342,9 @@
             vAxis: { title: 'Percentage', minValue: 0, maxValue: 100 },
             isStacked: true,
             legend: { position: 'top', maxLines: 3 },
-            chartArea: { width: '90%', height: '75%' }
+            chartArea: { width: '90%', height: '75%' },
+            colors: ['#1a9850', '#fee08b', '#d73027'],  // Red (1) to Green (5)
+
         };
 
         const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
