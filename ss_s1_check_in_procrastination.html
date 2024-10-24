@@ -50,7 +50,7 @@
     </style>
 </head>
 <body>
-    TESTING123
+    TESTING123456
     <script src="./theme.js"></script>
     <div id="chartContainer"></div>
     <div id="surveyContainer"></div>
@@ -338,14 +338,16 @@
             vAxis: { title: 'Survey Statements', textStyle: { fontSize: 12 } },
             isStacked: true,
             legend: { position: 'top', maxLines: 3 },
-            chartArea: { width: '70%', height: '90%' },  // Adjust the width of the chart area
+            chartArea: { width: '70%', height: '80%' },  // Adjust chart area width and height
             bar: { groupWidth: '70%' },  // Adjust the bar width
+            height: 500 + (questions.length * 30),  // Increase height based on the number of questions
         };
     
         // Render as horizontal stacked bar chart
         const chart = new google.visualization.BarChart(document.getElementById('chartContainer'));
         chart.draw(processedData, options);
     }
+
 
     </script>
 
