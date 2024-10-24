@@ -155,24 +155,26 @@
         // Iterate through the rows and check if the userID exists (skip if userID is 'Unknown')
         setTimeout(() => {
             for (let row = 0; row < data.getNumberOfRows(); row++) {
-                const storedUserID = data.getValue(row, 1);  // The userID is in the second column
+                const storedUserID = String(data.getValue(row, 1)).trim();  // The userID is in the second column
     
-                if (storedUserID === userID && userID !== 'Unknown User') {
+                if (storedUserID === String(userID).trim() && userID !== 'Unknown User') {
                     userExists = true;
-                    userRowData = row;  // Use row index, not entire data table
+                    userRowData = row;  // Use row index
                     break;
                 }
             }
     
             if (userExists) {
-                debugLog('User already exists, skipping survey and showing chart.');
+                debugLog(`User ${userID} already exists, skipping survey and showing chart.`);
                 showPreExistingResults(data, userRowData, surveyJson);  // Pass correct row index
             } else {
-                debugLog('User does not exist, rendering survey.');
+                debugLog(`User ${userID} does not exist, rendering survey.`);
                 renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
             }
+            debugLog(`Comparing storedUserID: "${storedUserID}" with userID: "${userID}"`);
         }, 500);  // Add a 500ms delay
     }
+
     
     function showPreExistingResults(data, userRowDataIndex, surveyJson) {
         // Show the chart with the user's original answers
