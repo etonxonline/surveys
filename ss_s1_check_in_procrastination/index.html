@@ -211,7 +211,7 @@
             userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
     
             const questions = surveyJson.questions[0].rows;
-            const userData = result.data['Choose from the options below:'];  // Adjust this as per your JSON structure
+            const userData = result.data['How would you rate yourself for each of these skills? (1 = lowest, 5 = highest)'];  // Adjust this as per your JSON structure
             for (const [question, answer] of Object.entries(userData)) {
                 userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
             }
