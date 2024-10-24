@@ -207,16 +207,21 @@
             // Dynamically get the title from the JSON
             const title = surveyJson.questions[0].name;
             
-            // Display the new user's answers below the chart
-            const userAnswersContainer = document.getElementById('userAnswers');
-            userAnswersContainer.style.display = 'block';
-            userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
-    
-            const questions = surveyJson.questions[0].rows;
-            const userData = result.data[title];  // Accessing the data dynamically based on the title
-            for (const [question, answer] of Object.entries(userData)) {
-                userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
-            }
+            // Delay showing the user's answers for a short time (e.g., 500ms)
+            setTimeout(() => {
+                // Display the new user's answers below the chart
+                const userAnswersContainer = document.getElementById('userAnswers');
+                userAnswersContainer.style.display = 'block';
+                userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
+        
+                const questions = surveyJson.questions[0].rows;
+                const userData = result.data[title];  // Accessing the data dynamically based on the title
+
+                // Iterate through user's answers and display them below the chart
+                for (const [question, answer] of Object.entries(userData)) {
+                    userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
+                }
+            }, 3000);  // Adjust delay time as necessary
         });
     }
     
