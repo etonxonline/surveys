@@ -203,14 +203,17 @@
         survey.onComplete.add(function (result) {
             debugLog('Survey completed, processing results:', result.data);
             submitSurveyData(result.data, surveyJson, googleScriptUrl, spreadsheetID); // Now passing spreadsheetID
-    
+
+            // Dynamically get the title from the JSON
+            const title = surveyJson.questions[0].name;
+            
             // Display the new user's answers below the chart
             const userAnswersContainer = document.getElementById('userAnswers');
             userAnswersContainer.style.display = 'block';
             userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
     
             const questions = surveyJson.questions[0].rows;
-            const userData = result.data['Choose from the options below:'];  // Adjust this as per your JSON structure
+            const userData = result.data[title];  // Accessing the data dynamically based on the title
             for (const [question, answer] of Object.entries(userData)) {
                 userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
             }
