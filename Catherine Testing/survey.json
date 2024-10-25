@@ -1,0 +1,27 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "How would you rate yourself for each of these skills? (1 = lowest, 5 = highest)",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "I understand abstraction.",
+        "I understand decomposition."
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
