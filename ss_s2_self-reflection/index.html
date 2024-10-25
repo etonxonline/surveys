@@ -320,7 +320,7 @@
         // Dynamically add columns for response options (e.g., "1", "2", "3", etc.)
         const matrixColumns = surveyJson.questions[0].columns;
         matrixColumns.forEach(column => {
-            processedData.addColumn('number', `${column} (%)`);
+            processedData.addColumn('number', `${column}`);
         });
     
         debugLog('Processing questions for chart:', surveyJson.questions[0].rows);
