@@ -351,15 +351,15 @@
         });
 
         const options = {
+            width: 900,
             title: 'Survey Results - Response Distribution (%)',
-            titleTextStyle: {fontName: 'Montserrat', fontSize: 18, bold: true, color: '#000000'},
+            titleTextStyle: {fontName: 'Montserrat', fontSize: 16, bold: true, color: '#000000'},
             hAxis: { title: '', textStyle: { bold: true, fontName: 'Montserrat'} },
             vAxis: { title: 'Percentage', minValue: 0, maxValue: 100, textStyle: {fontName: 'Montserrat'} },
             isStacked: true,
-            legend: { position: 'top', maxLines: 3 },
-            chartArea: { width: '90%', height: '75%' },
-            colors: ['#1a9850', '#fee08b', '#d73027'],  // Red (1) to Green (5)
-
+            legend: { position: 'right', maxLines: 4 },
+            chartArea: { left: 30, right: 300 },
+            colors: ['#1a9850', '#fee08b', '#d73027']  // Red (1) to Green (5)
         };
 
         const chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
