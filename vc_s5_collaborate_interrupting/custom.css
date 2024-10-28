@@ -3,6 +3,9 @@
  * Copyright (c) 2015-2024 Devsoft Baltic OÜ  - http://surveyjs.io/
  * License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
+.sd-item__decorator {
+    background-color: #223c59 !important;
+}
 /* cyrillic-ext */
 
 /* Set a wider width for the first column (question labels) */
@@ -8764,8 +8767,4 @@
   .sv-components-container-left {
     width: fit-content;
   }
-
-.sd-item__decorator {
-    background-color: #223c59 !important;
-}
   /*# sourceMappingURL=defaultV2.css.map*/
