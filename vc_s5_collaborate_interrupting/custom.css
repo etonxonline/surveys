@@ -393,7 +393,7 @@
   }
   
   .sv-action-bar-item--active .sv-action-bar-item__icon use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-action-bar-item-dropdown {
@@ -683,8 +683,8 @@
     flex: 1 0 0;
   }
   .sv-popup--overlay .sv-popup__button.sv-popup__button {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
-    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
+    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
   }
   
@@ -820,7 +820,7 @@
   }
   .sv-popup--dropdown-overlay .sv-popup__button.sv-popup__button {
     background-color: transparent;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border: none;
     box-shadow: none;
     padding: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) calc(2 * (var(--sjs-base-unit, var(--base-unit, 8px))));
@@ -909,7 +909,7 @@
   .sv-popup--dropdown-overlay .sv-list__item:hover.sv-list__item--selected .sv-list__item-body,
   .sv-popup--dropdown-overlay .sv-list__item:focus.sv-list__item--selected .sv-list__item-body,
   .sv-popup--dropdown-overlay .sv-list__item--focused.sv-list__item--selected .sv-list__item-body {
-    background: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     font-weight: 600;
   }
@@ -1041,8 +1041,8 @@
   }
   
   .sv-button-group:focus-within {
-    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #19b394));
-    border-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #f5424b));
+    border-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-button-group__item {
@@ -1082,10 +1082,10 @@
   
   .sv-button-group__item--selected {
     font-weight: 600;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sv-button-group__item--selected .sv-button-group__item-icon use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sv-button-group__item--selected:hover {
     background-color: var(--sjs-general-backcolor, var(--background, #fff));
@@ -1124,8 +1124,8 @@
   }
   
   .sv-button-group:focus-within {
-    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #19b394));
-    border-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #f5424b));
+    border-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-visuallyhidden {
@@ -1312,7 +1312,7 @@
   .sv_window_button:hover svg use,
   .sv_window_button:hover svg path, .sv_window_button:active svg use,
   .sv_window_button:active svg path {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sv_window_button:active {
     opacity: 0.5;
@@ -1429,7 +1429,7 @@
   
   .sv-ranking-item:focus .sv-ranking-item__index {
     background: var(--sjs-general-backcolor, var(--background, #fff));
-    outline: calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    outline: calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-ranking-item__content.sv-ranking-item__content {
@@ -1466,7 +1466,7 @@
   
   .sv-ranking-item__icon.sv-ranking-item__icon {
     visibility: hidden;
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     position: absolute;
     top: var(--sjs-base-unit, var(--base-unit, 8px));
     width: calc(1.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
@@ -1621,7 +1621,7 @@
   }
   
   .sv-ranking-shortcut .sv-ranking-item__icon {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-ranking-shortcut .sv-ranking-item__text {
@@ -1964,7 +1964,7 @@
   .sv-list__item.sv-list__item--selected.sv-list__item--focused > .sv-list__item-body,
   .sv-multi-select-list .sv-list__item.sv-list__item--selected.sv-list__item--focused > .sv-list__item-body,
   li:focus .sv-list__item.sv-list__item--selected > .sv-list__item-body {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     font-weight: 600;
   }
@@ -2163,7 +2163,7 @@
   }
   
   .sv-save-data_root.sv-save-data_success {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: #ffffff;
     font-weight: 600;
   }
@@ -2822,12 +2822,12 @@
     border: none;
     border-radius: var(--sjs-editorpanel-cornerRadius, var(--sjs-corner-radius, 4px));
     text-align: start;
-    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   
   .sd-input:focus {
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-input.sd-input:focus {
@@ -2962,7 +2962,7 @@
   }
   
   .sd-input[type=range]::-webkit-slider-runnable-track {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border-radius: var(--sjs-base-unit, var(--base-unit, 8px));
     height: calc(1.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
@@ -2972,15 +2972,15 @@
     appearance: none;
     margin-top: calc(-0.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     border-radius: 100%;
-    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     box-shadow: inset 0 0 0 2px var(--background, #fff);
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     height: calc(3 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     width: calc(3 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
   
   .sd-input[type=range]::-moz-range-track {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border-radius: var(--sjs-base-unit, var(--base-unit, 8px));
     height: calc(1.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
@@ -2990,9 +2990,9 @@
     appearance: none;
     margin-top: calc(-0.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     border-radius: 100%;
-    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: 2px solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     box-shadow: inset 0 0 0 2px var(--background, #fff);
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     height: calc(3 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     width: calc(3 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
@@ -3175,7 +3175,7 @@
   }
   
   .sd-checkbox--checked .sd-checkbox__control:focus + .sd-checkbox__decorator .sd-checkbox__svg use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-checkbox--checked.sd-checkbox--readonly .sd-checkbox__svg use {
@@ -3452,7 +3452,7 @@
   }
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) > td.sd-table__cell:not(.sd-table__cell--actions) .sd-item:not(.sd-item--error).sd-item--checked .sd-item__decorator,
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) td:first-of-type .sd-item:not(.sd-item--error).sd-item--checked .sd-item__decorator {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) > td.sd-table__cell:not(.sd-table__cell--actions) .sd-item:not(.sd-item--error).sd-item--checked .sd-item__control:focus + .sd-item__decorator,
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) td:first-of-type .sd-item:not(.sd-item--error).sd-item--checked .sd-item__control:focus + .sd-item__decorator {
@@ -3612,7 +3612,7 @@
     outline: none;
   }
   .sd-table__cell--detail-button:hover svg, .sd-table__cell--detail-button:focus svg {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-table__cell--actions {
@@ -4172,7 +4172,7 @@
     overflow: auto;
     font-family: var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family)));
     gap: calc(4 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    box-shadow: 0px 2px 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0px 2px 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-title.sd-container-modern__title .sd-logo.sv-logo--right {
     margin-left: auto;
@@ -4191,7 +4191,7 @@
     --survey-title-font-size: var(--sjs-font-surveytitle-size, calc(2 * (var(--sjs-font-size, 16px))));
     font-size: var(--survey-title-font-size);
     line-height: calc(1.25 * (var(--survey-title-font-size)));
-    color: var(--sjs-font-surveytitle-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    color: var(--sjs-font-surveytitle-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
     font-family: var(--sjs-font-surveytitle-family, var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family))));
     font-weight: var(--sjs-font-surveytitle-weight, 700);
   }
@@ -4294,7 +4294,7 @@
     border: none;
     flex-shrink: 0;
     margin-top: calc((1.5 * (var(--sjs-internal-font-editorfont-size)) - 3 * (var(--sjs-base-unit, var(--base-unit, 8px)))) / 2);
-    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms), background var(--sjs-transition-duration, 150ms);
   }
   
@@ -4317,7 +4317,7 @@
   .sd-item__control:focus + .sd-item__decorator {
     background: var(--sjs-questionpanel-backcolor, var(--sjs-question-background, var(--sjs-general-backcolor, var(--background, #fff))));
     outline: none;
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-item--allowhover:not(.sd-item--readonly) .sd-selectbase__label:hover .sd-item__decorator {
@@ -4326,7 +4326,7 @@
   }
   
   .sd-item--checked .sd-item__decorator {
-    background: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-item__control-label {
@@ -4470,7 +4470,7 @@
   }
   
   .sd-checkbox--checked .sd-checkbox__control:focus + .sd-checkbox__decorator .sd-checkbox__svg use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-checkbox--checked.sd-checkbox--readonly .sd-checkbox__svg use {
@@ -4522,7 +4522,7 @@
   }
   
   .sd-radio--checked .sd-radio__control:focus + .sd-radio__decorator:after {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-radio__svg {
@@ -4567,7 +4567,7 @@
   :root {
     --sd-rating-bad-color: var(--sjs-special-red, var(--red, #e60a3e));
     --sd-rating-normal-color: var(--sjs-special-yellow, var(--yellow, #ff9814));
-    --sd-rating-good-color: var(--sjs-special-green, var(--green, #19b394));
+    --sd-rating-good-color: var(--sjs-special-green, var(--green, #f5424b));
     --sd-rating-bad-color-light: var(--sjs-special-red-light, var(--red-light, rgba(230, 10, 62, 0.1)));
     --sd-rating-normal-color-light: var(--sjs-special-yellow-light, var(--yellow-light, rgba(255, 152, 20, 0.1)));
     --sd-rating-good-color-light: var(--sjs-special-green-light, var(--green-light, rgba(25, 179, 148, 0.1)));
@@ -4754,18 +4754,18 @@
   }
   
   .sd-rating__item:focus-within {
-    box-shadow: 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item--selected {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     font-weight: 600;
-    box-shadow: 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item--selected:focus-within {
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), inset 0 0 0 4px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), inset 0 0 0 4px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item-smiley {
@@ -4804,15 +4804,15 @@
   }
   
   .sd-rating__item-smiley--small:not(.sd-rating__item-smiley--selected):focus-within {
-    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item-smiley--colored.sd-rating__item-smiley--small:not(.sd-rating__item-smiley--selected):focus-within {
-    box-shadow: 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    box-shadow: 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   .sd-rating__item-smiley--small.sd-rating__item-smiley--selected:focus-within {
-    box-shadow: inset 0 0 0 2px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    box-shadow: inset 0 0 0 2px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   legend + .sd-rating__item-smiley,
@@ -4821,8 +4821,8 @@
   }
   
   .sd-rating__item-smiley--scale-colored {
-    border-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
-    fill: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    border-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
+    fill: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
     transition: box-shadow var(--sjs-transition-duration, 150ms), opacity var(--sjs-transition-duration, 150ms), background-color var(--sjs-transition-duration, 150ms);
   }
   
@@ -4881,24 +4881,24 @@
   
   .sd-rating__item-smiley:focus-within {
     border: none;
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item-smiley:focus-within {
     border: none;
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-rating__item-smiley--selected {
-    background-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
-    border-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    background-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
+    border-color: var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
     fill: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     font-weight: 600;
   }
   
   .sd-rating__item-smiley--selected:focus-within {
     border: 0px solid var(--sjs-general-backcolor, var(--background, #fff));
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), inset 0 0 0 4px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 2px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), inset 0 0 0 4px var(--sjs-general-backcolor, var(--background, #fff)), 0 0 0 2px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   .sd-rating__item-smiley--scale-colored:not(.sd-rating__item-smiley--selected) {
@@ -4916,12 +4916,12 @@
   
   .sd-rating__item-smiley--scale-colored:not(.sd-rating__item-smiley--selected):focus-within {
     opacity: 1;
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   .sd-rating__item-smiley--scale-colored.sd-rating__item-smiley--small:not(.sd-rating__item-smiley--selected):focus-within {
     opacity: 1;
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 1px var(--sd-rating-item-color, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   .sd-rating__item-smiley--scale-colored.sd-rating__item-smiley--selected, .sd-rating__item-smiley--scale-colored.sd-rating__item-smiley--readonly, .sd-rating__item-smiley--scale-colored.sd-rating__item-smiley--preview {
@@ -4973,7 +4973,7 @@
   
   .sd-rating__item-star--selected svg {
     stroke: transparent;
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-rating__item-star--selected:nth-child(1) svg {
     transition-delay: 0ms;
@@ -5091,7 +5091,7 @@
   }
   
   .sd-rating__item-star:not(.sd-rating__item-star--preview):focus-within svg {
-    stroke: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    stroke: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     fill: transparent;
   }
   
@@ -5111,8 +5111,8 @@
   }
   
   .sd-rating__item-star--selected:not(.sd-rating__item-star--preview):focus-within svg {
-    stroke: var(--sjs-primary-backcolor, var(--primary, #19b394));
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    stroke: var(--sjs-primary-backcolor, var(--primary, #f5424b));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-rating__item-star--selected:not(.sd-rating__item-star--preview):focus-within .sv-star {
     opacity: 0;
@@ -5401,7 +5401,7 @@
   }
   
   .sd-input.sd-dropdown:focus-within {
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-input.sd-dropdown.sd-input--readonly {
@@ -5545,7 +5545,7 @@
   }
   
   .sd-input.sd-tagbox:focus-within {
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sv-tagbox__item {
@@ -5553,7 +5553,7 @@
     display: flex;
     align-items: center;
     padding: var(--sjs-base-unit, var(--base-unit, 8px)) calc(1.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border-radius: calc(0.5 * (var(--sjs-corner-radius, 4px)));
     max-width: 100%;
     box-sizing: border-box;
@@ -5584,7 +5584,7 @@
     inset-inline-end: calc(1.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     padding: 0;
     padding-inline-start: calc(4 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    background: linear-gradient(270deg, var(--sjs-primary-backcolor, var(--primary, #19b394)) 53.12%, rgba(25, 179, 148, 0) 100%);
+    background: linear-gradient(270deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(25, 179, 148, 0) 100%);
     opacity: 0;
     transition: opacity var(--sjs-transition-duration, 150ms);
   }
@@ -5640,7 +5640,7 @@
   [dir=rtl] .sd-tagbox-item_clean-button,
   [style*="direction:rtl"] .sd-tagbox-item_clean-button,
   [style*="direction: rtl"] .sd-tagbox-item_clean-button {
-    background: linear-gradient(90deg, var(--sjs-primary-backcolor, var(--primary, #19b394)) 53.12%, rgba(25, 179, 148, 0) 100%);
+    background: linear-gradient(90deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(25, 179, 148, 0) 100%);
   }
   
   .sd-tagbox.sd-tagbox--empty .sd-tagbox__hint,
@@ -5739,7 +5739,7 @@
     display: block;
     width: calc(1.5 * (var(--sjs-internal-font-editorfont-size)));
     height: calc(1.5 * (var(--sjs-internal-font-editorfont-size)));
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-imagepicker__item--checked .sd-imagepicker__check-decorator {
@@ -5958,7 +5958,7 @@
     text-transform: var(--sjs-article-font-default-textCase, "none");
   }
   .sd-html a {
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-html button {
     display: flex;
@@ -5972,20 +5972,20 @@
     cursor: pointer;
     user-select: none;
     outline: solid calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px)))) transparent;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 600;
     font-style: normal;
     font-family: var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family)));
     font-size: var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px));
     line-height: calc(1.5 * (var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px))));
-    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   .sd-html button:hover {
     background-color: var(--sjs-questionpanel-hovercolor, var(--sjs-general-backcolor-dark, rgb(248, 248, 248)));
   }
   .sd-html button:focus {
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-html button span {
     display: flex;
@@ -6018,7 +6018,7 @@
   .sd-progress__bar {
     position: relative;
     height: 100%;
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     overflow: hidden;
   }
   
@@ -6070,11 +6070,11 @@
     padding: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     background-color: var(--sjs-editorpanel-backcolor, var(--sjs-editor-background, var(--sjs-general-backcolor-dim-light, var(--background-dim-light, #f9f9f9))));
     border-radius: calc(12.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner, inset 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   .sd-boolean.sd-boolean--allowhover:focus-within {
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-boolean__thumb,
@@ -6129,7 +6129,7 @@
     transition-duration: 0.2s;
     transition-property: transform, left;
     transition-timing-function: linear;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 600;
     z-index: 2;
   }
@@ -6401,17 +6401,17 @@
     color: var(--sjs-font-questiondescription-color, var(--sjs-general-forecolor-light, rgba(0, 0, 0, 0.45)));
     overflow-x: hidden;
     white-space: nowrap;
-    box-shadow: inset 0px 0px 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: inset 0px 0px 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   .sd-tab-item:hover, .sd-tab-item:focus-visible {
     outline: none;
-    box-shadow: inset 0px -2px 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: inset 0px -2px 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-tab-item.sd-tab-item--pressed {
     color: var(--sjs-font-questiontitle-color, var(--sjs-general-forecolor, var(--foreground, #161616)));
-    box-shadow: inset 0px -2px 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: inset 0px -2px 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-tab-item--icon {
@@ -6431,7 +6431,7 @@
   }
   .sd-tab-item--icon:hover use,
   .sd-tab-item--icon.sd-tab-item--pressed use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-tab-item--icon:hover use {
@@ -6643,9 +6643,9 @@
   
   .sd-file__decorator--drag {
     z-index: 1;
-    border: 1px solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: 1px solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
-    box-shadow: inset 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: inset 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-file__no-file-chosen {
@@ -6691,14 +6691,14 @@
   .sd-file__choose-btn--text {
     display: block;
     font-weight: 600;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     cursor: pointer;
   }
   .sd-file__choose-btn--text .sv-svg-icon {
     margin-left: calc(-1 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     width: 24px;
     height: 24px;
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-file__choose-btn--icon > span {
@@ -6969,7 +6969,7 @@
   }
   
   .sd-file > input:focus + .sd-file__decorator .sd-file__choose-btn.sd-file__choose-btn--icon use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-file > input:focus + .sd-file__decorator .sd-file__choose-btn:not(.sd-file__choose-btn--icon) {
     background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
@@ -7121,10 +7121,10 @@
     font-size: var(--sjs-font-size, 16px);
     line-height: calc(1.5 * (var(--sjs-font-size, 16px)));
     text-align: center;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border: none;
     outline: none;
-    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms), background var(--sjs-transition-duration, 150ms);
   }
   
@@ -7138,7 +7138,7 @@
   }
   
   .sd-btn:focus-visible {
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-btn:disabled {
@@ -7148,7 +7148,7 @@
   }
   
   .sd-btn--action {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
   }
   
@@ -7356,7 +7356,7 @@
   }
   .sd-body--empty a,
   .sd-body--loading a {
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-body--empty button,
   .sd-body--loading button {
@@ -7371,13 +7371,13 @@
     cursor: pointer;
     user-select: none;
     outline: solid calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px)))) transparent;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 600;
     font-style: normal;
     font-family: var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family)));
     font-size: var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px));
     line-height: calc(1.5 * (var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px))));
-    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   .sd-body--empty button:hover,
@@ -7386,7 +7386,7 @@
   }
   .sd-body--empty button:focus,
   .sd-body--loading button:focus {
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-body--empty button span,
   .sd-body--loading button span {
@@ -7425,7 +7425,7 @@
   }
   
   .sd-multipletext__item-container.sd-input:focus-within {
-    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-inner-reset, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-multipletext__item-container {
@@ -7531,7 +7531,7 @@
     gap: var(--sjs-base-unit, var(--base-unit, 8px));
     background: transparent;
     padding: var(--sjs-base-unit, var(--base-unit, 8px)) calc(3 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     border-radius: calc(12.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     font-weight: 600;
     font-family: var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family)));
@@ -7555,7 +7555,7 @@
     margin-left: calc(-1 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
   .sd-action__icon use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
   .sd-action--icon .sd-action__icon {
@@ -7649,7 +7649,7 @@
   
   .sd-context-btn:hover use,
   .sd-context-btn:focus use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-context-btn:hover.sd-context-btn--negative use,
   .sd-context-btn:focus.sd-context-btn--negative use {
@@ -7674,7 +7674,7 @@
   }
   
   .sd-context-btn--colorful use {
-    fill: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-context-btn--colorful.sd-context-btn--negative use {
     fill: red;
@@ -7690,7 +7690,7 @@
   }
   .sd-context-btn--colorful:focus.sd-context-btn--with-border,
   .sd-context-btn--colorful:hover.sd-context-btn--with-border {
-    --box-shadow-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    --box-shadow-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-context-btn--colorful:focus.sd-context-btn--with-border.sd-context-btn--negative,
   .sd-context-btn--colorful:hover.sd-context-btn--with-border.sd-context-btn--negative {
@@ -7798,7 +7798,7 @@
   }
   .sd-completedpage a,
   .sd-completed-before-page a {
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-completedpage button,
   .sd-completed-before-page button {
@@ -7813,13 +7813,13 @@
     cursor: pointer;
     user-select: none;
     outline: solid calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px)))) transparent;
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 600;
     font-style: normal;
     font-family: var(--sjs-font-family, var(--font-family, var(--sjs-default-font-family)));
     font-size: var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px));
     line-height: calc(1.5 * (var(--sjs-font-questiontitle-size, var(--sjs-font-size, 16px))));
-    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small, 0px 1px 2px 0px rgba(0, 0, 0, 0.15)), 0 0 0 0px var(--sjs-primary-backcolor, var(--primary, #f5424b));
     transition: box-shadow var(--sjs-transition-duration, 150ms);
   }
   .sd-completedpage button:hover,
@@ -7828,7 +7828,7 @@
   }
   .sd-completedpage button:focus,
   .sd-completed-before-page button:focus {
-    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #19b394));
+    box-shadow: var(--sjs-shadow-small-reset, 0px 0px 0px 0px rgba(0, 0, 0, 0.15)), 0 0 0 2px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-completedpage button span,
   .sd-completed-before-page button span {
@@ -7956,10 +7956,10 @@
     box-sizing: content-box;
   }
   .sd-progress-buttons__list li:hover .sd-progress-buttons__button {
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     padding: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     margin: calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     background-color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
   }
   .sd-progress-buttons__list li:hover .sd-progress-buttons__button .sd-progress-buttons__button-background {
@@ -7968,29 +7968,29 @@
   .sd-progress-buttons__list li:hover .sd-progress-buttons__button .sd-progress-buttons__button-content {
     top: calc(-0.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     left: calc(-0.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    border: calc(0.75 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: calc(0.75 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     background-color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     opacity: 1;
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--passed:not(:first-child) > .sd-progress-buttons__connector {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     opacity: 1;
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--passed .sd-progress-buttons__button {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--passed .sd-progress-buttons__button .sd-progress-buttons__button-content {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     opacity: 1;
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--current:not(:first-child) > .sd-progress-buttons__connector {
-    background-color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    background-color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     opacity: 1;
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--current .sd-progress-buttons__button {
-    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     background-color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     padding: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     margin: calc(0.25 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
@@ -7998,7 +7998,7 @@
     left: calc(-0.75 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
   .sd-progress-buttons__list .sd-progress-buttons__list-element--current .sd-progress-buttons__button .sd-progress-buttons__button-content {
-    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #19b394));
+    border: calc(0.5 * (var(--sjs-base-unit, var(--base-unit, 8px)))) solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
     background-color: var(--sjs-primary-forecolor, var(--primary-foreground, #fff));
     opacity: 1;
   }
@@ -8233,7 +8233,7 @@
     height: 100%;
     width: 100%;
     transform: rotate(-90deg);
-    stroke: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    stroke: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     stroke-dashoffset: 0;
     fill: none;
     stroke-width: 4px;
@@ -8253,13 +8253,13 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: var(--sjs-base-unit, var(--base-unit, 8px));
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 700;
     font-size: calc(var(--sd-timer-size) / 144 * 32);
   }
   
   .sd-timer__text--major {
-    color: var(--sjs-primary-backcolor, var(--primary, #19b394));
+    color: var(--sjs-primary-backcolor, var(--primary, #f5424b));
     font-weight: 700;
     font-size: calc(var(--sd-timer-size) / 144 * 32);
   }
@@ -8275,7 +8275,7 @@
   
   .sv-header {
     position: relative;
-    background-color: var(--sjs-header-backcolor, var(--sjs-primary-backcolor, var(--primary, #19b394)));
+    background-color: var(--sjs-header-backcolor, var(--sjs-primary-backcolor, var(--primary, #f5424b)));
   }
   
   .sv-header__overlap {
