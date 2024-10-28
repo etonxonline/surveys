@@ -707,7 +707,7 @@
   }
   .sv-popup__scrolling-content::-webkit-scrollbar-thumb,
   .sv-popup__scrolling-content *::-webkit-scrollbar-thumb {
-    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
   }
   
   .sv-popup__content {
@@ -945,7 +945,7 @@
   .sv-popup--dropdown-overlay.sv-multi-select-list .sv-list__item:hover.sv-list__item--selected .sv-list__item-body,
   .sv-popup--dropdown-overlay.sv-multi-select-list .sv-list__item:focus.sv-list__item--selected .sv-list__item-body,
   .sv-popup--dropdown-overlay.sv-multi-select-list .sv-list__item--focused.sv-list__item--selected .sv-list__item-body {
-    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     color: var(--sjs-general-forecolor, var(--foreground, #161616));
     font-weight: 400;
   }
@@ -1307,7 +1307,7 @@
     cursor: pointer;
   }
   .sv_window_button:hover, .sv_window_button:active {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
   }
   .sv_window_button:hover svg use,
   .sv_window_button:hover svg path, .sv_window_button:active svg use,
@@ -1479,7 +1479,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     color: var(--sjs-font-questiontitle-color, var(--sjs-general-forecolor, var(--foreground, #161616)));
     font-size: var(--sjs-internal-font-editorfont-size);
     border-radius: 100%;
@@ -1985,13 +1985,13 @@
   
   .sv-multi-select-list .sv-list__item.sv-list__item--selected .sv-list__item-body,
   .sv-multi-select-list .sv-list__item.sv-list__item--selected:hover .sv-list__item-body {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     color: var(--sjs-font-questiontitle-color, var(--sjs-general-forecolor, var(--foreground, #161616)));
     font-weight: 400;
   }
   
   .sv-list__item.sv-list__item--selected.sv-list__item--group > .sv-list__item-body {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     color: var(--sjs-font-questiontitle-color, var(--sjs-general-forecolor, var(--foreground, #161616)));
     font-weight: 400;
   }
@@ -3440,7 +3440,7 @@
   }
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) > td.sd-table__cell:not(.sd-table__cell--actions).sd-matrix__text--checked,
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) td:first-of-type.sd-matrix__text--checked {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
   }
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) > td.sd-table__cell:not(.sd-table__cell--actions) .sd-input,
   .sd-question:not(.sd-question--mobile) .sd-table--alternate-rows .sd-table__row:nth-of-type(odd) td:first-of-type .sd-input {
@@ -3608,7 +3608,7 @@
     transition: fill var(--sjs-transition-duration, 150ms);
   }
   .sd-table__cell--detail-button:hover, .sd-table__cell--detail-button:focus {
-    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     outline: none;
   }
   .sd-table__cell--detail-button:hover svg, .sd-table__cell--detail-button:focus svg {
@@ -4555,7 +4555,7 @@
   }
   
   .sd-matrix__text--checked {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     padding: calc(2 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
   
@@ -4570,7 +4570,7 @@
     --sd-rating-good-color: var(--sjs-special-green, var(--green, #f5424b));
     --sd-rating-bad-color-light: var(--sjs-special-red-light, var(--red-light, rgba(230, 10, 62, 0.1)));
     --sd-rating-normal-color-light: var(--sjs-special-yellow-light, var(--yellow-light, rgba(255, 152, 20, 0.1)));
-    --sd-rating-good-color-light: var(--sjs-special-green-light, var(--green-light, rgba(25, 179, 148, 0.1)));
+    --sd-rating-good-color-light: var(--sjs-special-green-light, var(--green-light, rgba(245, 66, 75, 0.1)));
   }
   
   .sd-rating {
@@ -5584,7 +5584,7 @@
     inset-inline-end: calc(1.5 * (var(--sjs-base-unit, var(--base-unit, 8px))));
     padding: 0;
     padding-inline-start: calc(4 * (var(--sjs-base-unit, var(--base-unit, 8px))));
-    background: linear-gradient(270deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(25, 179, 148, 0) 100%);
+    background: linear-gradient(270deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(245, 66, 75, 0) 100%);
     opacity: 0;
     transition: opacity var(--sjs-transition-duration, 150ms);
   }
@@ -5640,7 +5640,7 @@
   [dir=rtl] .sd-tagbox-item_clean-button,
   [style*="direction:rtl"] .sd-tagbox-item_clean-button,
   [style*="direction: rtl"] .sd-tagbox-item_clean-button {
-    background: linear-gradient(90deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(25, 179, 148, 0) 100%);
+    background: linear-gradient(90deg, var(--sjs-primary-backcolor, var(--primary, #f5424b)) 53.12%, rgba(245, 66, 75, 0) 100%);
   }
   
   .sd-tagbox.sd-tagbox--empty .sd-tagbox__hint,
@@ -6426,7 +6426,7 @@
   
   .sd-tab-item--icon:hover,
   .sd-tab-item--icon.sd-tab-item--pressed {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     box-shadow: none;
   }
   .sd-tab-item--icon:hover use,
@@ -6644,7 +6644,7 @@
   .sd-file__decorator--drag {
     z-index: 1;
     border: 1px solid var(--sjs-primary-backcolor, var(--primary, #f5424b));
-    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     box-shadow: inset 0 0 0 1px var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   
@@ -6972,7 +6972,7 @@
     fill: var(--sjs-primary-backcolor, var(--primary, #f5424b));
   }
   .sd-file > input:focus + .sd-file__decorator .sd-file__choose-btn:not(.sd-file__choose-btn--icon) {
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
   }
   
   .sd-file__drag-area {
@@ -7585,7 +7585,7 @@
   .sd-action:not(.sd-action--pressed):hover,
   .sd-action:not(.sd-action--pressed):focus {
     outline: none;
-    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background-color: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     cursor: pointer;
     opacity: 1;
   }
@@ -7682,7 +7682,7 @@
   
   .sd-context-btn--colorful:focus,
   .sd-context-btn--colorful:hover {
-    background: linear-gradient(var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1))), var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)))), linear-gradient(var(--sjs-general-backcolor, var(--background, #fff)), var(--sjs-general-backcolor, var(--background, #fff)));
+    background: linear-gradient(var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1))), var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)))), linear-gradient(var(--sjs-general-backcolor, var(--background, #fff)), var(--sjs-general-backcolor, var(--background, #fff)));
   }
   .sd-context-btn--colorful:focus.sd-context-btn--negative,
   .sd-context-btn--colorful:hover.sd-context-btn--negative {
@@ -8122,7 +8122,7 @@
     min-width: calc(32 * (var(--sjs-base-unit, var(--base-unit, 8px))));
   }
   .sv_progress-toc .sv-list__item.sv-list__item--selected .sv-list__item-body {
-    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(25, 179, 148, 0.1)));
+    background: var(--sjs-primary-backcolor-light, var(--primary-light, rgba(245, 66, 75, 0.1)));
     color: var(--sjs-general-forecolor, var(--foreground, #161616));
     font-weight: 400;
   }
