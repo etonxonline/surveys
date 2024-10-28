@@ -1,4 +1,4 @@
-const themeJson = {
+const ssthemeJson = {
   "themeName": "default",
   "colorPalette": "light",
   "isPanelless": false,
