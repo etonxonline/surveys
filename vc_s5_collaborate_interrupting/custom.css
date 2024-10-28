@@ -8764,5 +8764,8 @@
   .sv-components-container-left {
     width: fit-content;
   }
-  
+
+.sd-item__decorator {
+    background-color: #223c59 !important;
+}
   /*# sourceMappingURL=defaultV2.css.map*/
