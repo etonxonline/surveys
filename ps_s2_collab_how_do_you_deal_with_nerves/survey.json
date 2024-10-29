@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "How do you deal with nerves?",
+      "columns": [
+        "I do this",
+        "I plan to do this in future",
+        "I rarely do this",
+        "I never do this"
+      ],
+      "rows": [
+        "Meet and greet as many of the audience as possible",
+        "Take a few deep and slow breaths",
+        "Go through your talk and what you are going to say in your head",
+        "Focus on a person or particular point in the room"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
