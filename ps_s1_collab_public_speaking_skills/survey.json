@@ -2,13 +2,13 @@
   "questions": [
     {
       "type": "matrix",
-      "name": "Rate these speakers from 1 (poor) - 5 (excellent) on the following statements.",
+      "name": "Evaluate these speakers",
       "columns": [
-        "1",
-        "2",
-        "3",
+        "5 = Excellent",
         "4",
-        "5"
+        "3",
+        "2",
+        "1 = Poor"
       ],
       "rows": [
         "They used their nerves to project enthusiasm.",
