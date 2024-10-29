@@ -1,4 +1,4 @@
-const themeJson = {
+const giuthemeJson = {
   "themeName": "default",
   "colorPalette": "light",
   "isPanelless": false,
