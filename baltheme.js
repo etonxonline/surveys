@@ -1,5 +1,5 @@
 const balthemeJson = {
-  "themeName": "default",
+  "themeName": "baltheme",
   "colorPalette": "light",
   "isPanelless": false,
   "backgroundImage": "",
