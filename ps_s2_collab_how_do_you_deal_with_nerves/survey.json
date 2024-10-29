@@ -4,10 +4,10 @@
       "type": "matrix",
       "name": "How do you deal with nerves?",
       "columns": [
-        "I do this",
-        "I plan to do this in future",
-        "I rarely do this",
-        "I never do this"
+        "1 = I do this",
+        "2 = I plan to do this in future",
+        "3 = I rarely do this",
+        "4 = I never do this"
       ],
       "rows": [
         "Meet and greet as many of the audience as possible",
