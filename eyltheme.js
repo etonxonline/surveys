@@ -1,4 +1,4 @@
-const ssthemeJson = {
+const eylthemeJson = {
   "themeName": "default",
   "colorPalette": "light",
   "isPanelless": false,
