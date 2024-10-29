@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results Visualization</title>
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/survey-core@1.12.7/defaultV2.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/survey-core@1.12.7/survey.core.min.js"></script>
+    <script src="https://unpkg.com/survey-core@1.12.7/survey.i18n.min.js"></script>
+    <script src="https://unpkg.com/survey-core@1.12.7/themes/index.min.js"></script>
+    <script src="https://unpkg.com/survey-js-ui@1.12.7/survey-js-ui.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        #loadingIcon {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em;
+            color: #555;
+            text-align: center;
+        }
+        #loadingIcon .spinner {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #chartContainer {
+            width: 80%;
+            max-width: 1200px;
+            height: 1000px;
+            margin: 20px auto 0;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #chartContainer {
+                height: 400px;
+            }
+        }
+            
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Set font for SurveyJS components */
+        .sd-root {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Set font for user results */
+        #userAnswers {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script src="../baltheme.js"></script>
+    <div id="chartContainer"></div>
+    <div id="surveyContainer"></div>
+    <div id="userAnswers" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
+    <div id="debugInfo" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; display: none;">
+        <h3>Debug Information:</h3>
+        <pre id="debugOutput"></pre>
+    </div>
+    <div id="loadingIcon">
+        <div class="spinner"></div>
+        <p style="text-align: center;">Loading all the responses so you can compare your answers...</p>
+    </div>
+
+    <script>
+    // Debug flag to control the visibility of debug information
+    const DEBUG_MODE = false;
+
+    // Debug logging function
+    function debugLog(message, data = null) {
+        if (DEBUG_MODE) {
+            const timestamp = new Date().toISOString();
+            const logMessage = `${timestamp}: ${message}`;
+            console.log(logMessage);
+            if (data) {
+                console.log(data);
+            }
+            // Also display in the UI
+            const debugOutput = document.getElementById('debugOutput');
+            debugOutput.textContent += logMessage + '\n';
+            if (data) {
+                debugOutput.textContent += JSON.stringify(data, null, 2) + '\n';
+            }
+            // Make debug info visible
+            document.getElementById('debugInfo').style.display = 'block';
+        }
+    }
+
+    let userID = 'Unknown User';
+    let userIDReceived = false;
+
+    // Listen for messages from the parent window (Moodle page)
+    window.addEventListener('message', function(event) {
+        debugLog('Received message from parent:', event);
+        const allowedOrigins = ["https://my.etonx.com"];
+        if (!allowedOrigins.includes(event.origin)) {
+            debugLog('Ignoring message from unknown origin:', event.origin);
+            return;
+        }
+        if (event.data && event.data.type === 'MOODLE_USER_ID') {
+            userID = event.data.userID;
+            userIDReceived = true;
+            debugLog('Received Moodle user ID from parent:', userID);
+        }
+    }, false);
+
+    $(document).ready(function () {
+        debugLog('Application initialized');
+
+        // Request the Moodle user ID from the parent window
+        window.parent.postMessage({ type: 'REQUEST_USER_ID' }, "*");
+        debugLog('Requesting Moodle user ID from parent window.');
+
+        // Load external config file
+        $.getJSON('config.json', function(config) {
+            const jsonFilePath = config.jsonFile;
+            const googleScriptUrl = config.googleScriptUrl;
+            const spreadsheetID = config.spreadsheetID;
+
+            // Load the survey JSON dynamically
+            $.getJSON(jsonFilePath, function(surveyJson) {
+                fetchSurveyDataAndCheckUser(spreadsheetID, surveyJson, googleScriptUrl);
+            });
+        });
+    });
+
+    function fetchSurveyDataAndCheckUser(spreadsheetID, surveyJson, googleScriptUrl) {
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(() => {
+            const queryUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetID}/gviz/tq?sheet=Sheet1`;
+            debugLog('Querying spreadsheet for user check:', queryUrl);
+
+            const query = new google.visualization.Query(queryUrl);
+            query.setQuery('SELECT *');
+            query.send(function(response) {
+                handleUserCheckResponse(response, surveyJson, googleScriptUrl, spreadsheetID);
+            });
+        });
+    }
+
+    function handleUserCheckResponse(response, surveyJson, googleScriptUrl, spreadsheetID) {
+        if (response.isError()) {
+            debugLog('Error in spreadsheet query:', {
+                message: response.getMessage(),
+                detailedMessage: response.getDetailedMessage()
+            });
+            return;
+        }
+    
+        const data = response.getDataTable();
+        let userExists = false;
+        let userRowData = null;
+    
+        // Iterate through the rows and check if the userID exists (skip if userID is 'Unknown')
+        setTimeout(() => {
+            for (let row = 0; row < data.getNumberOfRows(); row++) {
+                const storedUserID = String(data.getValue(row, 1)).trim();  // The userID is in the second column
+    
+                if (storedUserID === String(userID).trim() && userID !== 'Unknown User') {
+                    userExists = true;
+                    userRowData = row;  // Use row index
+                    break;
+                }
+            }
+    
+            if (userExists) {
+                debugLog(`User ${userID} already exists, skipping survey and showing chart.`);
+                showPreExistingResults(data, userRowData, surveyJson);  // Pass correct row index
+            } else {
+                debugLog(`User ${userID} does not exist, rendering survey.`);
+                renderSurvey(surveyJson, googleScriptUrl, spreadsheetID);  // Pass spreadsheetID here
+            }
+        }, 500);  // Add a 500ms delay
+    }
+
+    
+    function showPreExistingResults(data, userRowDataIndex, surveyJson) {
+        // Show the chart with the user's original answers
+        document.getElementById('chartContainer').style.display = 'block';
+    
+        // Draw the chart with existing data
+        drawChart(data, surveyJson);
+    
+        // Display the user's original answers below the chart
+        const userAnswersContainer = document.getElementById('userAnswers');
+        userAnswersContainer.style.display = 'block';
+        userAnswersContainer.innerHTML = `<strong>Your previous answers:</strong><br>`;
+    
+        const questions = surveyJson.questions[0].rows;
+        
+        for (let i = 0; i < questions.length; i++) {
+            const userAnswer = data.getValue(userRowDataIndex, i + 2);  // Fetch user's actual answer from the correct row
+            userAnswersContainer.innerHTML += `${questions[i]}: ${userAnswer}<br>`;
+        }
+    }
+    
+    function renderSurvey(surveyJson, googleScriptUrl, spreadsheetID) {
+        const survey = new Survey.Model(surveyJson);
+        $("#surveyContainer").Survey({ model: survey });
+        survey.applyTheme(balthemeJson);
+    
+        survey.onComplete.add(function (result) {
+            debugLog('Survey completed, processing results:', result.data);
+            submitSurveyData(result.data, surveyJson, googleScriptUrl, spreadsheetID); // Now passing spreadsheetID
+
+            // Dynamically get the title from the JSON
+            const title = surveyJson.questions[0].name;
+    
+            // Delay showing the user's answers for a short time (e.g., 500ms)
+            setTimeout(() => {
+                // Display the new user's answers below the chart
+                const userAnswersContainer = document.getElementById('userAnswers');
+                userAnswersContainer.style.display = 'block';
+                userAnswersContainer.innerHTML = `<strong>Your answers:</strong><br>`;
+        
+                const questions = surveyJson.questions[0].rows;
+                const userData = result.data[title];  // Accessing the data dynamically based on the title
+
+                // Iterate through user's answers and display them below the chart
+                for (const [question, answer] of Object.entries(userData)) {
+                    userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
+                }
+            }, 3000);  // Adjust delay time as necessary
+        });
+    }
+    
+
+    function submitSurveyData(surveyData, surveyJson, googleScriptUrl, spreadsheetID) {
+        debugLog('Submitting survey data:', surveyData);
+
+        const queryParams = new URLSearchParams();
+        Object.entries(surveyData).forEach(([key, value]) => {
+            queryParams.append(key, typeof value === 'object' ? JSON.stringify(value) : value);
+        });
+
+        // Add user ID to the query params
+        queryParams.append('userID', userID);
+
+        const url = `${googleScriptUrl}?${queryParams.toString()}`;
+        debugLog('Submitting to Google Script URL:', url);
+
+        // Show loading icon while fetching data
+        document.getElementById('loadingIcon').style.display = 'block';
+
+        fetch(url, {
+            method: 'GET',
+            mode: 'cors'
+        })
+        .then(response => response.json())
+        .then(data => {
+            debugLog('Processed response data:', data);  // Log the response data
+            if (data.result === 'success') {
+                document.getElementById('chartContainer').style.display = 'block';
+                fetchSurveyDataAndRenderChart(spreadsheetID, surveyJson);  // Now passing spreadsheetID
+            } else {
+                throw new Error(data.message || 'Unknown error occurred');
+            }
+        })
+        .catch(error => {
+            debugLog('Error in survey submission:', error);
+            alert('Failed to submit survey. Please try again.');
+        })
+        .finally(() => {
+            // Hide loading icon
+            document.getElementById('loadingIcon').style.display = 'none';
+        });
+    }
+
+    function fetchSurveyDataAndRenderChart(spreadsheetID, surveyJson) {
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(() => {
+            const queryUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetID}/gviz/tq?sheet=Sheet1`;
+            debugLog('Querying spreadsheet:', queryUrl);
+
+            const query = new google.visualization.Query(queryUrl);
+            query.setQuery('SELECT *');
+            query.send((response) => handleQueryResponse(response, surveyJson));
+        });
+    }
+
+    function handleQueryResponse(response, surveyJson) {
+        if (response.isError()) {
+            debugLog('Error in spreadsheet query:', {
+                message: response.getMessage(),
+                detailedMessage: response.getDetailedMessage()
+            });
+            return;
+        }
+
+        try {
+            const data = response.getDataTable();
+            debugLog('Fetched data table for chart rendering:', data);  // Log the fetched data
+
+            // Skip the first two columns (timestamp and userID)
+            drawChart(data, surveyJson);
+        } catch (error) {
+            debugLog('Error in handling query response for chart rendering:', error);
+        }
+    }
+
+    function drawChart(data, surveyJson) {
+        const processedData = new google.visualization.DataTable();
+        processedData.addColumn('string', 'Question');
+    
+        // Dynamically add columns for response options (e.g., "1", "2", "3", etc.)
+        const matrixColumns = surveyJson.questions[0].columns;
+        matrixColumns.forEach(column => {
+            processedData.addColumn('number', `${column}`);
+        });
+    
+        debugLog('Processing questions for chart:', surveyJson.questions[0].rows);
+    
+        // Process each question (row) dynamically
+        const questions = surveyJson.questions[0].rows;
+            questions.forEach((question, questionIndex) => {
+                const responseCounts = new Array(matrixColumns.length).fill(0);
+                let totalResponses = 0;
+        
+                // Count responses for each question (starting from the 3rd column in the data)
+                for (let row = 0; row < data.getNumberOfRows(); row++) {
+                    const response = data.getValue(row, questionIndex + 2);  // Adjust this index according to your data structure
+                    if (response !== null) {
+                        const responseIndex = matrixColumns.indexOf(response.toString());  // Convert to string for comparison
+                        if (responseIndex !== -1) {
+                            responseCounts[responseIndex]++;
+                            totalResponses++;
+                        }
+                    }
+                }
+        
+                debugLog(`Response counts for "${question}":`, responseCounts);
+        
+                const percentages = totalResponses > 0
+                    ? responseCounts.map(count => (count / totalResponses) * 100)
+                    : new Array(matrixColumns.length).fill(0);
+        
+                processedData.addRow([question, ...percentages]);
+            });
+        
+            // Set up chart options with a red-to-green color scheme
+            const options = {
+                title: 'Collaborate: Evaluating Your Skills Survey Results - % of ratings for each statement\n(1 = lowest, 5 = highest)',
+                titleTextStyle: {fontName: 'Montserrat', fontSize: 18, bold: true, color: '#000000'},
+                hAxis: { title: 'Percentage', minValue: 0, maxValue: 100, textStyle: {fontName: 'Montserrat'} },
+                vAxis: {
+                    title: '', 
+                    textStyle: { fontSize: 14, bold: true , fontName: 'Montserrat'},
+                    // textPosition: 'out',  // Ensure text is placed outside the chart area
+                    slantedText: false,   // Keep labels straight
+                },
+                isStacked: true,
+                legend: { position: 'top', maxLines: 3 },
+                chartArea: {
+                    width: '70%', 
+                    height: '80%',
+                    left: 350  // Increase this to give more space for the labels
+                },
+                bar: { groupWidth: '60%' },  // Decrease groupWidth for space between bars
+                colors: ['#FFD700', '#ADFF2F', '#FF69B4', '#1E90FF', '#FF4500'],  // Red (1) to Green (5)
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                }
+            };
+        
+            // Render as horizontal stacked bar chart
+            const chart = new google.visualization.BarChart(document.getElementById('chartContainer'));
+            chart.draw(processedData, options);
+        }
+    
+    </script>
+</body>
+</html>
