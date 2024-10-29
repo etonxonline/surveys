@@ -1,4 +1,4 @@
-const themeJson = {
+const sacthemeJson = {
   "themeName": "default",
   "colorPalette": "light",
   "isPanelless": false,
