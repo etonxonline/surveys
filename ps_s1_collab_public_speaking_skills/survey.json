@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "Rate these speakers from 1 (poor) - 5 (excellent) on the following statements.",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "They used their nerves to project enthusiasm.",
+        "They made the topic relevant to their audience.",
+        "They expressed their ideas clearly and simply.",
+        "They showed their sincerity and passion for the subject.",
+        "They used their hands and gestures well.",
+        "They used eye contact well to connect to the audience.",
+        "They used a range of expression to add drama and humour.",
+        "The talk was clearly structured.",
+        "They used pauses to give the audience time to think.",
+        "They used slides and visuals well to reinforce their message."
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
