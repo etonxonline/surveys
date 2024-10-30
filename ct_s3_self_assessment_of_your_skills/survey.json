@@ -1,0 +1,32 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "Rate yourself from 1 (not confident at all) - 5 (very confident) for the following statements.",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "Understanding when I would like to use critical thinking in my life.",
+        "Recognising some different types of argument.",
+        "Identifying some flaws in arguments.",
+        "Understanding what a fallacy is and knowing some examples.",
+        "Understanding what a hidden assumption is.",
+        "Understanding why evidence is necessary.",
+        "Evaluating evidence used to back up an argument."
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
