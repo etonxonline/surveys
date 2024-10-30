@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Answer the following question.",
+            "columns": [
+                "1=Amaya",
+                "2=William",
+                "3= Neither of them"
+            ],
+            "rows": [
+                "Whose study challenges are most similar to your own?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
