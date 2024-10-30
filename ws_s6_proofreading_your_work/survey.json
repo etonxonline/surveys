@@ -1,0 +1,31 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Which of these will you try?",
+            "columns": [
+                "1 = Will try it.",
+                "2 = May try it.",
+                "3 = Won't try it."
+            ],
+            "rows": [
+                "Let it breathe.",
+                "Don't trust spellcheck.",
+                "Change the font.",
+                "Print it out.",
+                "Use a ruler",
+                "Make several passes.",
+                "Check your references.",
+                "Read it out loud"    
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
