@@ -1,0 +1,29 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "How would you rate yourself for each of these skills? (1 = lowest, 5 = highest)",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "I know my study triggers and put these in place to help me get started",
+        "I know the type of light/noise/room etc. that helps me to study well",
+        "I am good at asking myself 'Why am I doing this?' and finding a motivation so that I don't procrastinate",
+        "I know my 'danger zones' or biggest distractions and remove them as much as possible when I'm studying"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
