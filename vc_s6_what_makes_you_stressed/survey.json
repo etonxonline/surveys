@@ -1,0 +1,33 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "What makes you stressed?",
+      "columns": [
+        "1 = Very relaxed",
+        "2",
+        "3",
+        "4",
+        "5 = Very stressed"
+      ],
+      "rows": [
+        "Giving a presentation in front of other students",
+        "Being asked a question I am not ready for in class",
+        "Introducing myself to new people",
+        "Organising a meeting between friends",
+        "Accidentally breaking someone else's possession",
+        "Arriving late for an event",
+        "Someone pushing in front of me in a queue",
+        "Explaining to someone why I was upset by a comment they made"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
