@@ -1,0 +1,25 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "",
+            "columns": [
+                "Honesty",
+                "Authenticity",
+                "Integrity",
+                "Love"
+            ],
+            "rows": [
+                "Which do you think is the most difficult?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
