@@ -1,0 +1,25 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Vote for the smile that made you feel the most positive.",
+            "columns": [
+                "Clive",
+                "Jenny",
+                "Subina",
+                "Carlos"
+            ],
+            "rows": [
+                "Whose smile made you feel the most positive?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
