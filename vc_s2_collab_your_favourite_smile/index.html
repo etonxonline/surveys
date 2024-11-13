@@ -233,7 +233,7 @@
 
                 // Iterate through user's answers and display them below the chart
                 for (const [question, answer] of Object.entries(userData)) {
-                    userAnswersContainer.innerHTML += `${question}: ${answer}<br>`;
+                    userAnswersContainer.innerHTML += `${question}: <strong>${answer}</strong><br>`;
                 }
             }, 3000);  // Adjust delay time as necessary
         });
