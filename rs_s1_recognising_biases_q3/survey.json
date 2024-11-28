@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one.",
+            "columns": [
+                "Almost doubled",
+                "Stayed about the same",
+                "Almost halved"
+            ],
+            "rows": [
+                "In the last 20 years, how did the percentage of people living in extreme poverty change?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
