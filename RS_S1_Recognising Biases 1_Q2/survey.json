@@ -2,15 +2,14 @@
     "questions": [
         {
             "type": "matrix",
-            "name": "Select one attitude.",
+            "name": "Select one.",
             "columns": [
-                "Honesty",
-                "Integrity",
-                "Authenticity",
-                "Love"
+                "7 years",
+                "5 years",
+                "3 years"
             ],
             "rows": [
-                "Which of the attitudes do you think is the most difficult to have?"
+                "How many years did women aged 30 spend at school? (Men of same age spent 8 years)"
             ]
         }
     ],
