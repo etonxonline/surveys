@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one method.",
+            "columns": [
+                "Folder",
+                "Word Document",
+                "Referencing Management System"
+            ],
+            "rows": [
+                "Which method would you prefer to use?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
