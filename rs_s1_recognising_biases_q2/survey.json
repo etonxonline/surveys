@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one.",
+            "columns": [
+                "7 years",
+                "5 years",
+                "3 years"
+            ],
+            "rows": [
+                "How many years did women aged 30 spend at school? (Men of same age spent 8 years)"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
