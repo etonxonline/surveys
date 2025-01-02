@@ -1,0 +1,25 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one.",
+            "columns": [
+                "Yes I'm definitely going to try it.",
+                "I might try it out.",
+                "I already do this.",
+                "I don't think this would work for me."
+            ],
+            "rows": [
+                "Will you use the 'protected time' strategy that Kristen recommends?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
