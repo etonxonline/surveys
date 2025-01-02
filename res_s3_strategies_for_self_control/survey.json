@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one mentor.",
+            "columns": [
+                "Shainul",
+                "Adria",
+                "Morrison"
+            ],
+            "rows": [
+                "Of these three entrepreneurs, who would you choose as your mentor?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
