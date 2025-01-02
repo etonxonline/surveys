@@ -1,0 +1,30 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Think back to the characteristics of an entrepreneurial mindset that were mentioned in Section 1. How much do you think you’ve improved in these areas during the course so far? (1 = Not at all, 5 = A lot)",
+            "columns": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "rows": [
+                "Have vision",
+                "Driven",
+                "Committed",
+                "Resilient",
+                "Think long-term"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
