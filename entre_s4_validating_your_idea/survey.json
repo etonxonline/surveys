@@ -1,0 +1,26 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one mentor.",
+            "columns": [
+                "MVP",
+                "Landing page",
+                "Sign-ups",
+                "Payments"
+            ],
+            "rows": [
+                "Adria",
+                "Morrison"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
