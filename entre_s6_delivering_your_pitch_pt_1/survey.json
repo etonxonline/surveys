@@ -1,0 +1,23 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Imagine that you are an investor on a show like Dragon's Den or Shark Tank. If Nick delivered this pitch to you, would you be willing to invest?",
+            "columns": [
+                "Yes",
+                "No"
+            ],
+            "rows": [
+                "Would you invest?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
