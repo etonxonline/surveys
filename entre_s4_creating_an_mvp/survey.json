@@ -1,0 +1,27 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one MVP.",
+            "columns": [
+                "Blog",
+                "Video",
+                "Sign-up Page",
+                "Crowdfunding Post",
+                "Prototype",
+                "Other"
+            ],
+            "rows": [
+                "What type of MVP are you going to create?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
