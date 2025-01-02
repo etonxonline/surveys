@@ -1,0 +1,30 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "Look at the scenarios listed in the poll below. In which areas do you feel you exercise the greatest self-control? In which areas do you feel you perhaps have poor self-control?",
+      "columns": [
+        "Good self-control",
+        "Some self-control",
+        "Poor self-control"
+      ],
+      "rows": [
+        "Checking your phone for messages and notifications",
+        "Binge watching a new TV series",
+        "Chatting with friends in class",
+        "Watching funny YouTube videos",
+        "Getting out of bed when the alarm goes off",
+        "Spending money on frivolous things that you don't really need",
+        "Committing to an exercise routine"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
