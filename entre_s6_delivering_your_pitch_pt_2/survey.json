@@ -1,0 +1,23 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "After having watched Nick's second attempt, would you invest?",
+            "columns": [
+                "Yes",
+                "No"
+            ],
+            "rows": [
+                "Would you invest?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
