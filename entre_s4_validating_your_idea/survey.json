@@ -2,7 +2,7 @@
     "questions": [
         {
             "type": "matrix",
-            "name": "Select one mentor.",
+            "name": "If you were Adria and Morrison, how would you have validated your idea?",
             "columns": [
                 "MVP",
                 "Landing page",
