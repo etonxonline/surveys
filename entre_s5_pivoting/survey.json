@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Respond to the survey below and compare your decision to other students'.  ",
+            "columns": [
+                "Stick",
+                "Iterate",
+                "Pivot"
+            ],
+            "rows": [
+                "What decision have you made about your business idea?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
