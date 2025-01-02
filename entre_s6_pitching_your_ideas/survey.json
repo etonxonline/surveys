@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "Rate how confident you feel in each of the following pitching skills mentioned by the entrepreneurs (1 = not very confident, 5 = very confident.)",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "Having clarity of vision",
+        "Having individuality",
+        "Being the expert in the room"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
