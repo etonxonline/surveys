@@ -1,0 +1,23 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one.",
+            "columns": [
+                "Increasing",
+                "Decreasing"
+            ],
+            "rows": [
+                "Microsoft produced some frequently cited research on attention spans. Do you think it found that the average attention span is increasing or decreasing?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
