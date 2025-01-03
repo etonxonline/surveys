@@ -1,0 +1,30 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Choose the thought which most closely matches your likely thoughts.",
+            "columns": [
+                "Yes",
+                "No"
+            ],
+            "rows": [
+                "I wonder if I've got the right time and place?",
+                "I wonder if something's happened to him",
+                "I hope he's OK",
+                "He's probably caught in traffic",
+                "Typical. People are always late for me. It's not fair",
+                "I hate lateness. How dare he?",
+                "No wonder we stopped being friends"
+
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
