@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "How do you deal with nerves?",
+      "columns": [
+        "I never do this",
+        "I rarely do this",
+        "I plan to do this in future",
+        "I do this"
+      ],
+      "rows": [
+        "I make sure that I am aware of my body language while I'm presenting",
+        "I use hand gestures to emphasise particular points",
+        "I make sure that I do not look down at my slides when I'm talking",
+        "I make sure that I am neither too static nor too wild in my body language when presenting"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
