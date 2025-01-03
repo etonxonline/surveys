@@ -1,0 +1,30 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Choose the feeling which most closely matches your likely feelings.",
+            "columns": [
+                "Yes",
+                "No"
+            ],
+            "rows": [
+                "Concern",
+                "Worry",
+                "Frustration",
+                "Annoyance",
+                "Anger",
+                "Betrayal",
+                "Self-pity"
+
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
