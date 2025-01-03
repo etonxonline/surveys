@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "type": "matrix",
+            "name": "Select one.",
+            "columns": [
+                "10-15",
+                "30-35",
+                "45-50"
+            ],
+            "rows": [
+                "Between which points in a lecture (minutes) does the average student lose focus for the first time?"
+            ]
+        }
+    ],
+      "showNavigationButtons": "none",
+      "showTitle": false,
+      "showPageTitles": false,
+      "showCompletedPage": false,
+      "showQuestionNumbers": "off",
+      "goNextPageAutomatic": true,
+      "completeText": "Submit Answers",
+      "widthMode": "responsive"
+}
