@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "How do you deal with nerves?",
+      "columns": [
+        "Disagree",
+        "Not sure",
+        "Agree"
+      ],
+      "rows": [
+        "I always try to have one chart or graph to go with my speech. It helps make the facts more credible.",
+        "I like using a flip chart. It's useful to be able to draw and explain concepts.",
+        "I prefer presentation slides with engaging images on.",
+        "I prefer to have a laser pointer rather than a physical stick.",
+        "I prefer not to have a presentation. I would rather just speak.",
+        "I think using props looks unprofessional.",
+        "I prefer clip-on microphones to handheld microphones.",
+        "I really don't like using a microphone and only use one when I have to. "
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
