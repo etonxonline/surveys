@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "type": "matrix",
+      "name": "What do you need to improve? 1 = Not confident at all and 5 = Very confident",
+      "columns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rows": [
+        "Projecting your voice",
+        "Using pauses and changing the pace of your speech to help engage listeners",
+        "Using your body to help convey confidence and to reinforce your message",
+        "Remembering what you have to say",
+        "Controlling your nerves",
+        "Preparing and structuring the content of your talk",
+        "Conveying passion for your topic",
+        "Being yourself in front of an audience",
+        "Answering audience questions and dealing with interruptions",
+        "Understanding your own strengths and weaknesses and having the confidence to work on them"
+      ]
+    }
+  ],
+  "showNavigationButtons": "none",
+  "showTitle": false,
+  "showPageTitles": false,
+  "showCompletedPage": false,
+  "showQuestionNumbers": "off",
+  "goNextPageAutomatic": true,
+  "completeText": "Submit Answers",
+  "widthMode": "responsive"
+}
